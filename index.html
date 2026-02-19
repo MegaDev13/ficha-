@@ -71,6 +71,29 @@ input.ed[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
 .cst input::-webkit-inner-spin-button{-webkit-appearance:none}
 .cst input:focus{border-bottom-color:var(--gold)}
 .cstv{color:var(--auto);font-family:'Cinzel Decorative',serif;font-size:1.05rem;font-weight:700}
+
+/* ---- SELETOR DE RAÇA ---- */
+.race-wrap{margin-top:1.4rem;width:100%;max-width:700px}
+.race-select-row{display:flex;align-items:center;justify-content:center;gap:.8rem;flex-wrap:wrap}
+.race-label{font-family:'Cinzel',serif;font-size:.65rem;letter-spacing:.2rem;color:var(--gold);opacity:.7;text-transform:uppercase;white-space:nowrap}
+#race-select{background:rgba(0,0,0,.6);border:1px solid var(--gold-dark);border-radius:2px;color:var(--gold-light);font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.06rem;padding:.4rem 1rem;outline:none;cursor:pointer;min-width:220px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .7rem center;padding-right:2rem;transition:border-color .2s}
+#race-select:hover{border-color:var(--gold)}
+#race-select option{background:#1a1510;color:var(--parchment)}
+#race-info{margin-top:.9rem;display:none}
+.race-card{background:rgba(0,0,0,.55);border:1px solid;border-radius:2px;padding:.8rem 1.1rem;text-align:left;display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8rem}
+@media(max-width:600px){.race-card{grid-template-columns:1fr}}
+.race-card-title{grid-column:1/-1;font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.18rem;color:var(--gold-light);text-transform:uppercase;margin-bottom:.1rem;display:flex;align-items:center;gap:.6rem}
+.race-bonus-tag{font-family:'Fira Code',monospace;font-size:.65rem;padding:.08rem .3rem;border-radius:2px}
+.race-bonus-tag.pos{background:rgba(74,222,128,.12);border:1px solid rgba(74,222,128,.3);color:#4ade80}
+.race-bonus-tag.neg{background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.25);color:#f87171}
+.race-trait-block{font-size:.73rem;line-height:1.55}
+.race-trait-block strong{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.12rem;text-transform:uppercase;display:block;margin-bottom:.18rem;color:var(--gold)}
+.race-trait-block.vantagem strong{color:#4ade80}
+.race-trait-block.desvantagem strong{color:#f87171}
+.racial-badge{display:inline-flex;align-items:center;gap:3px;font-family:'Fira Code',monospace;font-size:.6rem;padding:.08rem .35rem;border-radius:2px;margin-left:.3rem}
+.racial-badge.pos{background:rgba(74,222,128,.1);border:1px solid rgba(74,222,128,.25);color:#4ade80}
+.racial-badge.neg{background:rgba(248,113,113,.08);border:1px solid rgba(248,113,113,.2);color:#f87171}
+
 .page{max-width:1280px;margin:0 auto;padding:2rem 1.5rem 5rem;display:grid;gap:1.5rem}
 .g3{display:grid;grid-template-columns:270px 1fr 1fr;gap:1.5rem}
 .g2{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
@@ -84,10 +107,13 @@ input.ed[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
 .attr-row{display:grid;grid-template-columns:52px 58px 50px 1fr;align-items:center;gap:.4rem;padding:.4rem .55rem;border:1px solid rgba(201,168,76,.1);background:rgba(0,0,0,.2);transition:background .2s}
 .attr-row:hover{background:rgba(201,168,76,.05)}
 .attr-abbr{font-family:'Cinzel Decorative',serif;font-size:.85rem;color:var(--gold-light);font-weight:700}
-.avw{background:rgba(0,0,0,.4);border:1px solid rgba(201,168,76,.2);border-radius:2px;padding:.1rem}
+.avw{background:rgba(0,0,0,.4);border:1px solid rgba(201,168,76,.2);border-radius:2px;padding:.1rem;position:relative}
 .avw input{background:transparent;border:none;color:var(--parchment);font-family:'Fira Code',monospace;font-size:1.2rem;text-align:center;outline:none;width:100%;-moz-appearance:textfield}
 .avw input::-webkit-inner-spin-button{-webkit-appearance:none}
 .avw:focus-within{border-color:var(--gold);background:rgba(201,168,76,.08)}
+.attr-racial{position:absolute;top:-7px;right:-5px;font-family:'Fira Code',monospace;font-size:.55rem;padding:.03rem .2rem;border-radius:2px;white-space:nowrap;line-height:1.2}
+.attr-racial.rpos{background:rgba(74,222,128,.15);border:1px solid rgba(74,222,128,.35);color:#4ade80}
+.attr-racial.rneg{background:rgba(248,113,113,.12);border:1px solid rgba(248,113,113,.3);color:#f87171}
 .attr-ma{text-align:center;min-width:38px}
 .bar-track{width:100%;height:4px;background:rgba(255,255,255,.06);border-radius:2px;overflow:hidden}
 .bar-fill{height:100%;background:linear-gradient(to right,var(--gold-dark),var(--gold));transition:width .4s}
@@ -132,10 +158,27 @@ td input.ed{font-size:.82rem;width:100%;min-width:40px}
 .sr:hover{border-color:rgba(201,168,76,.25)}
 .srem{background:transparent;border:none;color:var(--crimson);cursor:pointer;font-size:1rem;padding:0 .2rem;opacity:.4;transition:opacity .2s}
 .srem:hover{opacity:1}
-.sbadge{font-family:'Fira Code',monospace;font-size:.62rem;padding:.1rem .4rem;border:1px solid var(--gold-dark);color:var(--gold);display:inline-flex;align-items:center;gap:2px}
+.sbadge{font-family:'Fira Code',monospace;font-size:.62rem;padding:.1rem .4rem;border-radius:2px;border:1px solid var(--gold-dark);color:var(--gold);display:inline-flex;align-items:center;gap:2px}
 .sbadge input{background:transparent;border:none;color:var(--gold);font-family:'Fira Code',monospace;font-size:.62rem;width:16px;text-align:center;outline:none}
 .addbtn{background:transparent;border:1px dashed rgba(201,168,76,.22);width:100%;padding:.45rem;font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.15rem;color:var(--gold-dark);cursor:pointer;text-transform:uppercase;transition:all .2s;margin-top:.3rem}
 .addbtn:hover{border-color:var(--gold);color:var(--gold);background:rgba(201,168,76,.05)}
+/* ARMA ATIVA */
+.arma-ativa-chk{appearance:none;-webkit-appearance:none;width:16px;height:16px;border:1px solid var(--gold-dark);border-radius:2px;background:transparent;cursor:pointer;position:relative;transition:all .2s;flex-shrink:0}
+.arma-ativa-chk:checked{background:rgba(201,168,76,.25);border-color:var(--gold)}
+.arma-ativa-chk:checked::after{content:'✦';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:.6rem;color:var(--gold);line-height:1;text-align:center;padding-top:1px}
+.arma-tipo-sel{background:rgba(0,0,0,.4);border:1px solid rgba(201,168,76,.15);color:var(--mist);font-family:'Fira Code',monospace;font-size:.62rem;padding:.15rem .3rem;outline:none;cursor:pointer;transition:border-color .2s;border-radius:2px}
+.arma-tipo-sel:focus{border-color:var(--gold)}
+.arma-tipo-sel option{background:#1a1510}
+.arma-tipo-sel.corpo{border-color:rgba(201,76,76,.4);color:#f87171}
+.arma-tipo-sel.distancia{border-color:rgba(76,174,201,.4);color:#7fb3d3}
+.arma-ativa-row{display:flex;align-items:center;justify-content:center;gap:4px}
+.ativa-label{font-family:'Fira Code',monospace;font-size:.55rem;color:var(--mist)}
+/* ativa highlight */
+tr.arma-ativa-corp{background:rgba(201,76,76,.06)!important;border-left:2px solid rgba(201,76,76,.5)}
+tr.arma-ativa-dist{background:rgba(76,174,201,.06)!important;border-left:2px solid rgba(76,174,201,.5)}
+/* dano dinâmico no combate */
+.dano-cell{font-family:'Fira Code',monospace;font-size:.78rem;color:var(--gold-light)}
+.dano-cell .arma-nome{font-family:'Cinzel',serif;font-size:.6rem;color:var(--mist);display:block;margin-top:1px}
 /* SLOTS */
 .slot-sect{background:rgba(0,0,0,.2);border:1px solid rgba(201,168,76,.12);padding:.9rem}
 .sgrid{display:grid;grid-template-columns:repeat(6,1fr);gap:.5rem;margin-top:.7rem}
@@ -178,10 +221,8 @@ td input.ed{font-size:.82rem;width:100%;min-width:40px}
 footer{background:var(--ink);border-top:2px solid var(--gold-dark);padding:2rem;text-align:center}
 .fl{font-family:'Cinzel Decorative',serif;font-size:1.4rem;color:var(--gold);margin-bottom:.4rem}
 footer p{font-size:.78rem;color:var(--mist);opacity:.45}
-/* slot nivel label unlock */
 .slbl.unlocked{color:var(--gold)}
 .slbl.locked-lbl{color:rgba(255,255,255,.15)}
-/* pontos de perícia */
 .pp-bar{background:rgba(0,0,0,.35);border:1px solid rgba(201,168,76,.15);padding:.6rem .8rem;margin-bottom:.8rem;display:flex;justify-content:space-between;align-items:center;gap:.5rem}
 .pp-info{font-family:'Fira Code',monospace;font-size:.72rem;color:var(--mist);line-height:1.5}
 .pp-nums{font-family:'Cinzel Decorative',serif;font-size:1.3rem;text-align:right;white-space:nowrap}
@@ -226,7 +267,7 @@ footer p{font-size:.78rem;color:var(--mist);opacity:.45}
   <div class="cover-bg"></div><div class="cover-ov"></div>
   <div class="cover-body">
     <div class="csys">✦ Herança RPG — Ficha de Personagem ✦</div>
-    <div class="cname"><input type="text" id="c-nome" value="Shay" maxlength="30" spellcheck="false"></div>
+    <div class="cname"><input type="text" id="c-nome" value="Personagem" maxlength="30" spellcheck="false"></div>
     <div class="cdiv"></div>
     <div class="cstats">
       <div class="cst"><span>Nível</span><span id="c-nivel-display" class="cstv">1</span></div>
@@ -235,6 +276,34 @@ footer p{font-size:.78rem;color:var(--mist);opacity:.45}
       <div class="cst"><span>Velocidade</span><span id="c-vel" class="cstv">9m</span></div>
       <div class="cst"><span>Iniciativa</span><span id="c-ini" class="cstv">+0</span></div>
     </div>
+
+    <!-- SELETOR DE RAÇA -->
+    <div class="race-wrap">
+      <div class="race-select-row">
+        <span class="race-label">✦ Raça</span>
+        <select id="race-select" onchange="aplicarRaca(this.value)">
+          <option value="">— Selecionar Raça —</option>
+          <optgroup label="Clássicas">
+            <option value="humano">Humano — O Adaptável</option>
+            <option value="elfo">Elfo — O Eterno</option>
+            <option value="anao">Anão — O Inabalável</option>
+            <option value="halfling">Halfling — O Sortudo</option>
+            <option value="tiefling">Tiefling — O Marcado</option>
+            <option value="draconato">Draconato — O Herdeiro do Sopro</option>
+            <option value="meio_elfo">Meio-Elfo — O Entre-Mundos</option>
+          </optgroup>
+          <optgroup label="Originais de Herança">
+            <option value="cinzeiro">Cinzeiro — O Corrompido</option>
+            <option value="moldado">Moldado — O Construto Vivo</option>
+            <option value="selvatico">Selvático — O Vínculo Animal</option>
+            <option value="sem_nome">Sem-Nome — A Identidade Fluida</option>
+            <option value="gnomo">Gnomo — O Engenheiro do Impossível</option>
+          </optgroup>
+        </select>
+      </div>
+      <div id="race-info"></div>
+    </div>
+
   </div>
 </div>
 
@@ -260,29 +329,25 @@ footer p{font-size:.78rem;color:var(--mist);opacity:.45}
     <div class="pbd">
       <div class="rlist">
         <div class="ritem">
-          <div class="rtop">
-            <span class="rlbl">Pontos de Vida</span>
+          <div class="rtop"><span class="rlbl">Pontos de Vida</span>
             <div class="rnums"><input type="number" id="r-pv-cur" min="0" value="10"><span style="opacity:.4">/</span><span id="r-pv-max" class="auto">—</span></div>
           </div>
           <div class="rtrack"><div id="bar-hp" class="rfill fhp" style="width:100%">PV</div></div>
         </div>
         <div class="ritem">
-          <div class="rtop">
-            <span class="rlbl">Mana</span>
+          <div class="rtop"><span class="rlbl">Mana</span>
             <div class="rnums"><input type="number" id="r-mana-cur" min="0" value="0"><span style="opacity:.4">/</span><span id="r-mana-max" class="auto">—</span></div>
           </div>
           <div class="rtrack"><div id="bar-mana" class="rfill fmana" style="width:100%">Mana</div></div>
         </div>
         <div class="ritem">
-          <div class="rtop">
-            <span class="rlbl">Exaustão</span>
+          <div class="rtop"><span class="rlbl">Exaustão</span>
             <div class="rnums"><input type="number" id="r-exst-cur" min="0" value="0"><span style="opacity:.4">/</span><span id="r-exst-max" class="auto">—</span></div>
           </div>
           <div class="rtrack"><div id="bar-exst" class="rfill fexst" style="width:0%"></div></div>
         </div>
         <div class="ritem">
-          <div class="rtop">
-            <span class="rlbl">Performance</span>
+          <div class="rtop"><span class="rlbl">Performance</span>
             <div class="rnums"><span id="r-perf" class="auto">—</span><span style="opacity:.4;font-size:.7rem"> pts</span></div>
           </div>
           <div class="rtrack"><div id="bar-perf" class="rfill fperf" style="width:50%">Perf</div></div>
@@ -326,17 +391,44 @@ footer p{font-size:.78rem;color:var(--mist);opacity:.45}
       <div class="tw"><table>
         <thead><tr><th>Tipo</th><th>Bônus</th><th>Dano</th><th>Tipo Dano</th><th>Alc.</th><th>PA</th></tr></thead>
         <tbody>
-          <tr><td>Corpo a Corpo</td><td><span id="atk-corp" class="auto">—</span></td><td>1d8+FOR</td><td>Cortante</td><td>1,5m</td><td>2</td></tr>
-          <tr><td>À Distância</td><td><span id="atk-dist" class="auto">—</span></td><td>1d8+DES</td><td>Perfurante</td><td>30m</td><td>2</td></tr>
-          <tr><td>Magia Toque</td><td><span id="atk-mag" class="auto">—</span></td><td>1d10+INT</td><td>Mágico</td><td>Toque</td><td>2</td></tr>
+          <tr>
+            <td>Corpo a Corpo</td>
+            <td><span id="atk-corp" class="auto">—</span></td>
+            <td class="dano-cell" id="dano-corp-cell"><span id="dano-corp-val">1d8</span><span id="dano-corp-bonus" class="auto" style="margin-left:4px">+0</span><span id="dano-corp-arma" class="arma-nome">—</span></td>
+            <td><span id="dano-corp-tipo">Cortante</span></td>
+            <td><span id="dano-corp-alc">1,5m</span></td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>À Distância</td>
+            <td><span id="atk-dist" class="auto">—</span></td>
+            <td class="dano-cell" id="dano-dist-cell"><span id="dano-dist-val">1d8</span><span id="dano-dist-bonus" class="auto" style="margin-left:4px">+0</span><span id="dano-dist-arma" class="arma-nome">—</span></td>
+            <td><span id="dano-dist-tipo">Perfurante</span></td>
+            <td><span id="dano-dist-alc">30m</span></td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>Magia Toque</td>
+            <td><span id="atk-mag" class="auto">—</span></td>
+            <td class="dano-cell"><span>1d10</span><span id="dano-mag-bonus" class="auto" style="margin-left:4px">+0</span></td>
+            <td>Mágico</td><td>Toque</td><td>2</td>
+          </tr>
         </tbody>
       </table></div>
-      <div class="shd" style="margin-top:1.1rem">Arsenal</div>
+
+      <div class="shd" style="margin-top:1.1rem">Arsenal
+        <span style="font-family:'Fira Code',monospace;font-size:.6rem;color:var(--mist);margin-left:.5rem;font-weight:normal;letter-spacing:0">
+          <span style="color:#f87171">■</span> corpo a corpo &nbsp;
+          <span style="color:#7fb3d3">■</span> à distância &nbsp;
+          <span style="color:var(--gold)">✦</span> arma ativa
+        </span>
+      </div>
       <div class="tw"><table>
-        <thead><tr><th>Arma</th><th>Dano</th><th>Crítico</th><th>Alcance</th><th>Propriedades</th><th></th></tr></thead>
+        <thead><tr><th>Arma</th><th>Tipo</th><th>Dano</th><th>Crítico</th><th>Alcance</th><th>Propriedades</th><th>Ativa</th><th></th></tr></thead>
         <tbody id="armas-body"></tbody>
       </table></div>
       <button class="addbtn" onclick="addArma()">+ Adicionar Arma</button>
+
       <div class="shd" style="margin-top:1.1rem">Armadura</div>
       <div class="tw"><table>
         <thead><tr><th>Peça</th><th>CA</th><th>DR</th><th>Penalidade</th></tr></thead>
@@ -354,10 +446,7 @@ footer p{font-size:.78rem;color:var(--mist);opacity:.45}
     <div class="phd"><span>📜</span><h2>Perícias</h2></div>
     <div class="pbd">
       <div class="pp-bar">
-        <div class="pp-info">
-          Pontos de Perícia<br>
-          <span style="font-size:.6rem">Nível 1: 20 pts · Por nível: 1 + mod INT</span>
-        </div>
+        <div class="pp-info">Pontos de Perícia<br><span style="font-size:.6rem">Nível 1: 20 pts · Por nível: 1 + mod INT</span></div>
         <div>
           <div id="pp-restante" class="pp-nums ok">—</div>
           <span class="pp-sub">restam de <span id="pp-total">—</span></span>
@@ -385,9 +474,7 @@ footer p{font-size:.78rem;color:var(--mist);opacity:.45}
       </div>
       <div>
         <div class="shd">Slots de Magia</div>
-        <div class="slot-sect">
-          <div class="sgrid" id="slot-grid"></div>
-        </div>
+        <div class="slot-sect"><div class="sgrid" id="slot-grid"></div></div>
         <div class="ib" style="margin-top:.7rem">
           <div class="ibl">Legenda</div>
           <p>
@@ -474,39 +561,126 @@ const SKILLS=[
   {id:'intimidacao',nome:'Intimidação',attr:'CAR'},{id:'lideranca',nome:'Liderança',attr:'CAR'},
 ];
 
-// Tabela de progressão: nível, xp mínimo, ganhos, slots desbloqueados por nível de magia
-const XPT=[
-  {n:1, xp:0,      g:'+1 Perícia, Cantrips',          slots:{1:2,2:0,3:0,4:0,5:0,6:0}},
-  {n:2, xp:300,    g:'+1 Perícia',                     slots:{1:3,2:0,3:0,4:0,5:0,6:0}},
-  {n:3, xp:900,    g:'+1 Perícia, Magias N2',           slots:{1:4,2:2,3:0,4:0,5:0,6:0}},
-  {n:4, xp:2700,   g:'+1 Perícia, +1 Atributo',        slots:{1:4,2:3,3:0,4:0,5:0,6:0}},
-  {n:5, xp:6500,   g:'+1 Perícia, +2 INT, Magias N3',  slots:{1:4,2:3,3:2,4:0,5:0,6:0}},
-  {n:6, xp:14000,  g:'+1 Perícia',                     slots:{1:4,2:3,3:3,4:0,5:0,6:0}},
-  {n:7, xp:23000,  g:'+1 Perícia, Magias N4',          slots:{1:4,2:3,3:3,4:1,5:0,6:0}},
-  {n:8, xp:34000,  g:'+1 Perícia, +1 Atributo',        slots:{1:4,2:3,3:3,4:2,5:0,6:0}},
-  {n:9, xp:48000,  g:'+1 Perícia, Magias N5',          slots:{1:4,2:3,3:3,4:3,5:1,6:0}},
-  {n:10,xp:64000,  g:'+1 Perícia, +50% Mana',          slots:{1:4,2:3,3:3,4:3,5:2,6:0}},
-  {n:11,xp:85000,  g:'+1 Perícia, Magias N6',          slots:{1:4,2:3,3:3,4:3,5:2,6:1}},
-  {n:12,xp:100000, g:'+1 Perícia, +1 Atributo',        slots:{1:4,2:3,3:3,4:3,5:2,6:1}},
-  {n:13,xp:120000, g:'+1 Perícia',                     slots:{1:4,2:3,3:3,4:3,5:2,6:2}},
-  {n:14,xp:145000, g:'+1 Perícia',                     slots:{1:4,2:3,3:3,4:3,5:3,6:2}},
-  {n:15,xp:175000, g:'+1 Perícia, +1 PA',              slots:{1:4,2:3,3:3,4:3,5:3,6:2}},
-  {n:16,xp:210000, g:'+1 Perícia, +1 Atributo',        slots:{1:4,2:3,3:3,4:3,5:3,6:3}},
-  {n:17,xp:250000, g:'+1 Perícia',                     slots:{1:4,2:3,3:3,4:3,5:3,6:3}},
-  {n:18,xp:300000, g:'+1 Perícia',                     slots:{1:4,2:3,3:3,4:3,5:3,6:3}},
-  {n:19,xp:360000, g:'+1 Perícia',                     slots:{1:4,2:3,3:3,4:3,5:3,6:4}},
-  {n:20,xp:430000, g:'+1 Perícia, +1 Atributo, Imunidade', slots:{1:4,2:3,3:3,4:3,5:3,6:4}},
-];
+// ═══════════════════════════════════════════════════════
+//  DADOS DAS RAÇAS
+// ═══════════════════════════════════════════════════════
+const RACAS = {
+  humano: {
+    nome: 'Humano — O Adaptável', cor: '#6a4c32',
+    bonus: {FOR:1,DES:1,INT:1,CAR:1,SAB:1},
+    tracos: '+1 PA permanente · 5 perícias iniciais · Ressurreição 1×/descanso (chega a 0 PV → fica em 1 PV)',
+    habilidade: 'Determinação (Reação, 1×/descanso curto): Rerrola qualquer teste e fica com o segundo resultado.',
+    desvantagem: 'Sem resistência natural — todo dano de tipo único causa +1/dado sem resistência adquirida.'
+  },
+  elfo: {
+    nome: 'Elfo — O Eterno', cor: '#1e4a30',
+    bonus: {DES:3,INT:2,SAB:1,FOR:-1},
+    tracos: 'Visão no escuro 18m · Cantrip extra grátis (custo −1 Mana) · Imune a sono mágico · Transe 4h = descanso longo',
+    habilidade: 'Passo Sombrio (2 Mana, Ação Menor, 3×/desc. longo): Teletransporte 9m sem provocar ataques de oportunidade.',
+    desvantagem: '−2 PV por nível · +2 dano de impacto recebido por dado.'
+  },
+  anao: {
+    nome: 'Anão — O Inabalável', cor: '#4a3010',
+    bonus: {FOR:3,CON:3,DES:-2,CAR:-1},
+    tracos: 'DR natural 2 · Vantagem vs veneno/doença/empurrão · Visão penumbra · +2 PV/nível',
+    habilidade: 'Vigor de Ferro (0 Mana, Ação Menor, 1×/desc. curto, 3 rodadas): Resistência física, DR 5, imune a Caído/Empurrado. Pós-uso: Exaustão 1 por 2 rodadas.',
+    desvantagem: 'Velocidade 7m · Não pode correr com carga >60% · Magias de Ilusão custam +2 Mana.'
+  },
+  halfling: {
+    nome: 'Halfling — O Sortudo', cor: '#2a4010',
+    bonus: {DES:3,CAR:2,SAB:1,FOR:-2},
+    tracos: 'Sorte Inata: rerrola 1s naturais automaticamente · Vantagem em Furtividade · Imune a Medo com aliado em 3m · Tamanho Pequeno',
+    habilidade: 'Toca de Coelho (1 Mana, Reação, 2×/desc. curto): Quando atingido, esquiva para espaço adjacente — ataque erra automaticamente.',
+    desvantagem: 'Dano de armas de duas mãos −1d · Desvantagem em Intimidação · Pequeno para fins de agarrar/carregar.'
+  },
+  tiefling: {
+    nome: 'Tiefling — O Marcado', cor: '#4a0a0a',
+    bonus: {INT:2,CAR:3,SAB:-1},
+    tracos: 'Resistência a Fogo (÷2) · Visão no escuro 18m (escala de cinza) · Cantrips Thaumaturgy + Produce Flame grátis · +3 Intimidação',
+    habilidade: 'Chama Infernal (3 Mana, Ação Padrão, 2×/desc. longo): Cone 6m — 3d6+CAR (fogo+necrótico), save DES. Ignora resistência comum a fogo.',
+    desvantagem: 'NPCs neutros: teste CAR DC 12 na 1ª interação (falha = Desconfiante). Desvantagem em saves vs magia Sagrada/Radiante.'
+  },
+  draconato: {
+    nome: 'Draconato — O Herdeiro do Sopro', cor: '#0a1a3a',
+    bonus: {FOR:3,CAR:2,INT:1,DES:-1},
+    tracos: 'Resistência ao elemento da linhagem · DR natural escalonável (1+Nível÷5) · Vantagem em Intimidação e liderança de combate',
+    habilidade: 'Sopro Dracônico (Mana=Nível÷2, Ação Padrão): Cone 6m ou Linha 9m — (Nível×1d6)+FOR do elemento da linhagem. DC 8+Nível÷2+FOR.',
+    desvantagem: 'Desvantagem em saves de SAB vs Medo/Raiva · Abaixo de 25% PV: save SAB DC 14 ou ataca aliado mais próximo por 1 rodada.'
+  },
+  meio_elfo: {
+    nome: 'Meio-Elfo — O Entre-Mundos', cor: '#1a3020',
+    bonus: {CAR:3,DES:2,INT:1},
+    tracos: 'Herança Dupla: escolha 2 traços (1 Humano + 1 Élfico) · +4 Persuasão/Enganação · Envelhece 2× mais lento · Imune a Envelhecimento Mágico',
+    habilidade: 'Empatia Élfica (0 Mana, Ação Livre, ilimitado): Lê emoções superficiais (medo, raiva, mentira) em até 9m. SAB vs DC 12+SAB do alvo.',
+    desvantagem: 'Sem bônus de grupo racial. Ao ser Encantado: duração dobrada.'
+  },
+  cinzeiro: {
+    nome: 'Cinzeiro — O Corrompido', cor: '#2a2a2a',
+    bonus: {INT:2,FOR:1,CAR:-2},
+    tracos: 'Resistência a Fogo e Eletricidade · 25% chance de absorver magias N0/N1 inimigas · Mana máx +4/nível · Sente magia em 9m automaticamente',
+    habilidade: 'Absorção Arcana (0 Mana, Reação, 1×/rodada): Ao ser atingido por magia com dano, absorve até (Nível×2) de Mana. O restante do dano aplica normalmente.',
+    desvantagem: 'Rolagem 1 natural em ação que use Mana: Explosão Residual 1d6 (força) em raio 3m. Curas mágicas 50% menos eficazes.'
+  },
+  moldado: {
+    nome: 'Moldado — O Construto Vivo', cor: '#0a0a2a',
+    bonus: {FOR:2,INT:3,SAB:-2},
+    tracos: 'Imune a veneno/doença/sono/fome/sede/envelhecimento · Descanso curto = 10min · Descanso longo = 4h · Memória perfeita · Módulo de Combate (1 arma sempre máxima)',
+    habilidade: 'Sobrecarga de Sistema (0 Mana, Ação Menor, 1×/desc. longo, 3 rodadas): +2 PA/turno, +1d6 ataques. Após: Exaustão 2 + sem Ação Livre por 2 rodadas.',
+    desvantagem: 'Sem Mana própria — depende de Cristais de Mana (1 cristal = 2 Mana). Dispel Magic causa Atordoado por 1 rodada mesmo se resistir.'
+  },
+  selvatico: {
+    nome: 'Selvático — O Vínculo Animal', cor: '#1a3a10',
+    bonus: {FOR:2,DES:2,SAB:2,INT:-2},
+    tracos: 'Aspecto Animal (Felino/Urso/Lobo/Corvo) · Não pode ser surpreendido · Vantagem em Percepção passiva · Regeneração: +1 PV/início de turno (bloqueada por veneno)',
+    habilidade: 'Forma Bestial (4 Mana, Ação Padrão, 2×/desc. longo, Nível÷3 rodadas): +2 FOR e DES, +3m velocidade, ataques naturais 2d6+FOR.',
+    desvantagem: 'Desvantagem em Enganação/Persuasão em contextos urbanos. Abaixo de 30% PV: save SAB DC 13 ou perde 1 PA (faz ataque de oportunidade no agressor).'
+  },
+  sem_nome: {
+    nome: 'Sem-Nome — A Identidade Fluida', cor: '#20102a',
+    bonus: {FOR:-1,DES:-1,INT:-1,CAR:-1,SAB:-1},
+    tracos: 'Redistribui 2 pts de atributo a cada nível ímpar · Imune a Modificar Memória e Leitura de Mente · Scrying falha automaticamente · +10% XP em tudo',
+    habilidade: 'Fragmento Emprestado (2 Mana, Ação Menor, 3×/desc. longo, 10 min): Copia um Traço Passivo de raça de um aliado em 3m. Apenas 1 fragmento ativo por vez.',
+    desvantagem: '−1 global em todos os atributos base (compensado pela redistribuição nos níveis ímpares). Banimento: precisa de aliado no plano material que o "lembre" (CAR DC 14).'
+  },
+  gnomo: {
+    nome: 'Gnomo — O Engenheiro do Impossível', cor: '#102030',
+    bonus: {INT:4,DES:2,FOR:-2},
+    tracos: 'Vantagem em saves de INT e vs Ilusões/Encantamentos · DC de Ilusões +2 · Custo de Ilusões −2 Mana · +4 Arcanismo/Ferramentas/Investigação · Tamanho Pequeno',
+    habilidade: 'Gambito Gnômico (1 Mana, Ação Livre, ilimitado): Cria distração ilusória em 18m. Criaturas INT≥8 devem passar em Percepção DC 12+INT ou perdem Ação Livre.',
+    desvantagem: '−1 PV por nível. −2 saves FOR e CON. Criaturas Grandes+ têm Vantagem em ataques contra gnomos.'
+  }
+};
 
-// Máximo absoluto de slots por nível (para renderizar os círculos)
+const XPT=[
+  {n:1,xp:0,g:'+1 Perícia, Cantrips',slots:{1:2,2:0,3:0,4:0,5:0,6:0}},
+  {n:2,xp:300,g:'+1 Perícia',slots:{1:3,2:0,3:0,4:0,5:0,6:0}},
+  {n:3,xp:900,g:'+1 Perícia, Magias N2',slots:{1:4,2:2,3:0,4:0,5:0,6:0}},
+  {n:4,xp:2700,g:'+1 Perícia, +1 Atributo',slots:{1:4,2:3,3:0,4:0,5:0,6:0}},
+  {n:5,xp:6500,g:'+1 Perícia, +2 INT, Magias N3',slots:{1:4,2:3,3:2,4:0,5:0,6:0}},
+  {n:6,xp:14000,g:'+1 Perícia',slots:{1:4,2:3,3:3,4:0,5:0,6:0}},
+  {n:7,xp:23000,g:'+1 Perícia, Magias N4',slots:{1:4,2:3,3:3,4:1,5:0,6:0}},
+  {n:8,xp:34000,g:'+1 Perícia, +1 Atributo',slots:{1:4,2:3,3:3,4:2,5:0,6:0}},
+  {n:9,xp:48000,g:'+1 Perícia, Magias N5',slots:{1:4,2:3,3:3,4:3,5:1,6:0}},
+  {n:10,xp:64000,g:'+1 Perícia, +50% Mana',slots:{1:4,2:3,3:3,4:3,5:2,6:0}},
+  {n:11,xp:85000,g:'+1 Perícia, Magias N6',slots:{1:4,2:3,3:3,4:3,5:2,6:1}},
+  {n:12,xp:100000,g:'+1 Perícia, +1 Atributo',slots:{1:4,2:3,3:3,4:3,5:2,6:1}},
+  {n:13,xp:120000,g:'+1 Perícia',slots:{1:4,2:3,3:3,4:3,5:2,6:2}},
+  {n:14,xp:145000,g:'+1 Perícia',slots:{1:4,2:3,3:3,4:3,5:3,6:2}},
+  {n:15,xp:175000,g:'+1 Perícia, +1 PA',slots:{1:4,2:3,3:3,4:3,5:3,6:2}},
+  {n:16,xp:210000,g:'+1 Perícia, +1 Atributo',slots:{1:4,2:3,3:3,4:3,5:3,6:3}},
+  {n:17,xp:250000,g:'+1 Perícia',slots:{1:4,2:3,3:3,4:3,5:3,6:3}},
+  {n:18,xp:300000,g:'+1 Perícia',slots:{1:4,2:3,3:3,4:3,5:3,6:3}},
+  {n:19,xp:360000,g:'+1 Perícia',slots:{1:4,2:3,3:3,4:3,5:3,6:4}},
+  {n:20,xp:430000,g:'+1 Perícia, +1 Atributo, Imunidade',slots:{1:4,2:3,3:3,4:3,5:3,6:4}},
+];
 const SLOT_MAX={1:4,2:3,3:3,4:3,5:3,6:4};
 
 let S={
-  nome:'Personagem',xp:0,
+  nome:'Personagem',xp:0,raca:'',
   FOR:10,DES:10,INT:10,CAR:10,SAB:10,
   pv_cur:10,mana_cur:0,exst_cur:0,
   skills:{atletismo:0,luta:0,acrobacia:0,furtividade:0,pontaria:0,percepcao:0,sobrevivencia:0,medicina:0,combate_mag:0,investigacao:0,conhec_arc:0,conhec_mag:0,estrategia:0,forja:0,engenharia:0,diplomacia:0,intimidacao:0,lideranca:0},
-  armas:[{nome:'Espada Longa',dano:'1d8',crit:'19-20/x2',alc:'1,5m',prop:'Versátil'}],
+  armas:[{nome:'Espada Longa',tipo:'corpo',dano:'1d8',crit:'19-20/x2',alc:'1,5m',prop:'Versátil',ativa:true}],
   arm_ca:0,arm_dr:0,arm_pen:0,esc_ca:0,esc_dr:0,esc_pen:0,
   spells:[],
   slots:{1:[0,0,0,0],2:[0,0,0],3:[0,0,0],4:[0,0,0],5:[0,0,0],6:[0,0,0,0]},
@@ -521,27 +695,85 @@ function st(id,v){const e=g(id);if(e)e.textContent=v}
 function iv(id){return parseInt(g(id)?.value)||0}
 function setBar(id,cur,max){const e=g(id);if(!e)return;e.style.width=(max>0?Math.max(0,Math.min(100,cur/max*100)):0)+'%'}
 
-// Calcula nível pelo XP atual
-function calcNivel(xp){
-  let nivel=1;
-  for(let i=XPT.length-1;i>=0;i--){if(xp>=XPT[i].xp){nivel=XPT[i].n;break;}}
-  return nivel;
+function calcNivel(xp){let n=1;for(let i=XPT.length-1;i>=0;i--){if(xp>=XPT[i].xp){n=XPT[i].n;break;}}return n;}
+function slotsDoNivel(n){const r=XPT.find(x=>x.n===n);return r?r.slots:{1:0,2:0,3:0,4:0,5:0,6:0};}
+
+// ═══════════════════════════════════════════════════════
+//  SISTEMA DE RAÇA
+// ═══════════════════════════════════════════════════════
+
+function getRacaBonus(){
+  const r=RACAS[S.raca];
+  return r?r.bonus:{};
 }
 
-// Retorna o objeto de slots desbloqueados para o nível atual
-function slotsDoNivel(nivel){
-  const row=XPT.find(r=>r.n===nivel);
-  return row?row.slots:{1:0,2:0,3:0,4:0,5:0,6:0};
+function getAttrComRaca(attr){
+  const base=iv('atr-'+attr)||10;
+  const bonus=(getRacaBonus()[attr]||0);
+  return base+bonus;
 }
+
+function aplicarRaca(racaId){
+  S.raca=racaId;
+  atualizarInfoRaca();
+  renderAttrs();
+  recalc();
+  sched();
+}
+
+function atualizarInfoRaca(){
+  const sel=g('race-select');
+  const info=g('race-info');
+  const raca=RACAS[S.raca];
+
+  if(sel) sel.value=S.raca||'';
+
+  if(!raca){info.style.display='none';return;}
+
+  // Monta badges de bônus
+  const bonusHtml=Object.entries(raca.bonus).map(([k,v])=>{
+    if(v===0)return'';
+    const cls=v>0?'pos':'neg';
+    return `<span class="race-bonus-tag ${cls}">${k} ${v>0?'+':''}${v}</span>`;
+  }).join('');
+
+  info.style.display='block';
+  info.innerHTML=`
+    <div class="race-card" style="border-color:${raca.cor}40;background:${raca.cor}18">
+      <div class="race-card-title">
+        <span>${raca.nome}</span>
+        ${bonusHtml}
+      </div>
+      <div class="race-trait-block vantagem">
+        <strong>🟢 Traços Passivos</strong>
+        ${raca.tracos}
+      </div>
+      <div class="race-trait-block" style="color:var(--auto)">
+        <strong>🔵 Habilidade Racial</strong>
+        ${raca.habilidade}
+      </div>
+      <div class="race-trait-block desvantagem" style="grid-column:1/-1">
+        <strong>🔴 Desvantagem Inerente</strong>
+        ${raca.desvantagem}
+      </div>
+    </div>`;
+}
+
+// ═══════════════════════════════════════════════════════
+//  RECALC
+// ═══════════════════════════════════════════════════════
 
 function recalc(){
   const xp=iv('c-xp');
   const nivel=calcNivel(xp);
-  const A={};ATTRS.forEach(a=>{A[a]=iv('atr-'+a)||10});
-  const MA={};ATTRS.forEach(a=>{MA[a]=ma(A[a])});
 
-  // Mostra nível calculado na cover
-  st('c-nivel-display', nivel);
+  // Atributos com bônus racial
+  const A={};
+  ATTRS.forEach(a=>{A[a]=getAttrComRaca(a)});
+  const MA={};
+  ATTRS.forEach(a=>{MA[a]=ma(A[a])});
+
+  st('c-nivel-display',nivel);
 
   // defesas
   const arm_ca=iv('arm-ca'),esc_ca=iv('esc-ca');
@@ -550,49 +782,79 @@ function recalc(){
   st('def-aer',10+MA.DES+nivel);
   st('def-men',10+MA.SAB);
 
-  // PV
-  const pv_max=Math.max(1,(10+MA.FOR)+(nivel-1)*Math.max(5+MA.FOR,1));
+  // PV — anão +2/nível, elfo -2/nível, gnomo -1/nível
+  let pvBonus=0;
+  if(S.raca==='anao') pvBonus=2*(nivel-1);
+  if(S.raca==='elfo') pvBonus=-2*(nivel-1);
+  if(S.raca==='gnomo') pvBonus=-(nivel-1);
+  const pv_max=Math.max(1,(10+MA.FOR)+(nivel-1)*Math.max(5+MA.FOR,1)+pvBonus);
   const exst_max=20+Math.max(0,MA.SAB*5);
   const perf=3+MA.CAR;
   st('r-pv-max',pv_max);st('r-exst-max',exst_max);st('r-perf',perf);
 
-  // MANA = nível*10 + modINT*10
-  const mana_max=nivel*10+MA.INT*10;
-  st('r-mana-max',mana_max);
+  let mana_max=nivel*10+MA.INT*10;
+  if(S.raca==='cinzeiro') mana_max+=4*nivel; // +4 mana/nível
+  if(S.raca==='moldado') mana_max=0; // depende de cristais
+  st('r-mana-max',S.raca==='moldado'?'Cristais':mana_max);
 
   const pv_cur=Math.min(iv('r-pv-cur'),pv_max);
-  const mana_cur=Math.min(iv('r-mana-cur'),mana_max);
+  const mana_cur=S.raca==='moldado'?iv('r-mana-cur'):Math.min(iv('r-mana-cur'),mana_max);
   const exst_cur=Math.min(iv('r-exst-cur'),exst_max);
   setBar('bar-hp',pv_cur,pv_max);
-  setBar('bar-mana',mana_cur,mana_max);
+  setBar('bar-mana',mana_cur,S.raca==='moldado'?20:mana_max);
   setBar('bar-exst',exst_cur,exst_max);
   setBar('bar-perf',perf,Math.max(perf+4,8));
 
-  // magia
   st('dc-mag',10+nivel+MA.INT);
   const bc=MA.INT+MA.SAB;
   const bce=g('b-conj');
   if(bce){bce.textContent=fmt(bc);bce.className='auto'+(bc>0?' pos':bc<0?' neg':'')}
 
-  // combate
+  // combate bônus
   const sk_luta=iv('skill-luta'),sk_pont=iv('skill-pontaria'),sk_cm=iv('skill-combate_mag');
   const ac=sk_luta+MA.FOR,ad=sk_pont+MA.DES,am=sk_cm+MA.INT;
   const ce=g('atk-corp');if(ce){ce.textContent=fmt(ac);ce.className='auto'+(ac>0?' pos':ac<0?' neg':'')}
   const de=g('atk-dist');if(de){de.textContent=fmt(ad);de.className='auto'+(ad>0?' pos':ad<0?' neg':'')}
   const me=g('atk-mag');if(me){me.textContent=fmt(am);me.className='auto'+(am>0?' pos':am<0?' neg':'')}
 
+  // Bônus dano magia
+  const dmb=g('dano-mag-bonus');
+  if(dmb){dmb.textContent=fmt(MA.INT);dmb.className='auto'+(MA.INT>0?' pos':MA.INT<0?' neg':'')}
+
+  // DANO DINÂMICO — arma ativa
+  updateDanoCombate(MA);
+
   st('tot-ca',arm_ca+esc_ca);st('tot-dr',iv('arm-dr')+iv('esc-dr'));
 
-  const vel=Math.max(9+MA.DES,3),pa=nivel>=15?7:6,ini=10+MA.DES;
+  // PA: humano ganha +1 permanente
+  const paExtra=(S.raca==='humano')?1:0;
+  const vel=Math.max(S.raca==='anao'?7:9+MA.DES,3);
+  const pa=(nivel>=15?7:6)+paExtra;
+  const ini=10+MA.DES;
   st('c-vel',vel+'m');st('c-ini',fmt(ini));st('c-pa',pa);
   st('mini-ini',fmt(ini));st('mini-vel',vel+'m');st('mini-pa',pa);
 
+  // Barra de atributos (com racial)
   ATTRS.forEach(a=>{
-    const v=A[a],m=MA[a];
-    const me=g('ma-'+a);
-    if(me){me.textContent=fmt(m);me.className='attr-ma auto'+(m>0?' pos':m<0?' neg':'')}
+    const base=iv('atr-'+a)||10;
+    const rb=getRacaBonus()[a]||0;
+    const total=base+rb;
+    const m=ma(total);
+    const me2=g('ma-'+a);
+    if(me2){me2.textContent=fmt(m);me2.className='attr-ma auto'+(m>0?' pos':m<0?' neg':'')}
     const be=g('bar-'+a);
-    if(be)be.style.width=Math.max(0,Math.min(100,((v-3)/27)*100))+'%';
+    if(be)be.style.width=Math.max(0,Math.min(100,((total-3)/27)*100))+'%';
+    // badge racial
+    const badge=g('racial-badge-'+a);
+    if(badge){
+      if(rb!==0){
+        badge.textContent=(rb>0?'+':'')+rb;
+        badge.className='attr-racial '+(rb>0?'rpos':'rneg');
+        badge.style.display='block';
+      } else {
+        badge.style.display='none';
+      }
+    }
   });
 
   SKILLS.forEach(sk=>{
@@ -601,20 +863,14 @@ function recalc(){
     if(e){e.textContent=fmt(b);e.className='auto'+(b>0?' pos':b<0?' neg':'')}
   });
 
-  // Pontos de perícia: 20 no nível 1, depois +1+modINT por nível
-  // modINT mínimo 0 para o cálculo de ganho por nível
   const modIntPP=Math.max(0,MA.INT);
   const ppTotal=20+(nivel-1)*(1+modIntPP);
   const ppGasto=SKILLS.reduce((sum,sk)=>sum+(iv('skill-'+sk.id)||0),0);
   const ppRest=ppTotal-ppGasto;
   const ppEl=g('pp-restante'),ppTEl=g('pp-total');
-  if(ppEl){
-    ppEl.textContent=ppRest;
-    ppEl.className='pp-nums '+(ppRest<0?'over':ppRest===0?'zero':'ok');
-  }
+  if(ppEl){ppEl.textContent=ppRest;ppEl.className='pp-nums '+(ppRest<0?'over':ppRest===0?'zero':'ok')}
   if(ppTEl)ppTEl.textContent=ppTotal;
 
-  // XP bar
   const cur=XPT.find(r=>r.n===nivel),nxt=XPT.find(r=>r.n===nivel+1);
   if(cur&&nxt){
     const pct=Math.min(100,((xp-cur.xp)/(nxt.xp-cur.xp))*100);
@@ -631,13 +887,49 @@ function recalc(){
   });
 
   document.title='HERANÇA RPG — '+(g('c-nome')?.value||'Personagem');
-
-  // Rerenderiza slots com os desbloqueios do nível atual
   renderSlots(nivel);
 }
 
+function updateDanoCombate(MA){
+  // Corpo a Corpo — pega a arma ativa do tipo corpo
+  const armaCorpo=S.armas.find(a=>a.ativa&&a.tipo==='corpo');
+  const armaDistancia=S.armas.find(a=>a.ativa&&a.tipo==='distancia');
+
+  const dv=g('dano-corp-val'),db=g('dano-corp-bonus'),dn=g('dano-corp-arma');
+  const dt=g('dano-corp-tipo'),da=g('dano-corp-alc');
+  if(armaCorpo){
+    if(dv)dv.textContent=armaCorpo.dano;
+    if(db){db.textContent=fmt(MA.FOR);db.className='auto'+(MA.FOR>0?' pos':MA.FOR<0?' neg':'')}
+    if(dn)dn.textContent=armaCorpo.nome;
+    if(dt)dt.textContent=armaCorpo.prop||'Cortante';
+    if(da)da.textContent=armaCorpo.alc;
+  }else{
+    if(dv)dv.textContent='1d8';
+    if(db){db.textContent=fmt(MA.FOR);db.className='auto'+(MA.FOR>0?' pos':MA.FOR<0?' neg':'')}
+    if(dn)dn.textContent='sem arma equipada';
+    if(dt)dt.textContent='Cortante';
+    if(da)da.textContent='1,5m';
+  }
+
+  const ddv=g('dano-dist-val'),ddb=g('dano-dist-bonus'),ddn=g('dano-dist-arma');
+  const ddt=g('dano-dist-tipo'),dda=g('dano-dist-alc');
+  if(armaDistancia){
+    if(ddv)ddv.textContent=armaDistancia.dano;
+    if(ddb){ddb.textContent=fmt(MA.DES);ddb.className='auto'+(MA.DES>0?' pos':MA.DES<0?' neg':'')}
+    if(ddn)ddn.textContent=armaDistancia.nome;
+    if(ddt)ddt.textContent=armaDistancia.prop||'Perfurante';
+    if(dda)dda.textContent=armaDistancia.alc;
+  }else{
+    if(ddv)ddv.textContent='1d8';
+    if(ddb){ddb.textContent=fmt(MA.DES);ddb.className='auto'+(MA.DES>0?' pos':MA.DES<0?' neg':'')}
+    if(ddn)ddn.textContent='sem arma equipada';
+    if(ddt)ddt.textContent='Perfurante';
+    if(dda)dda.textContent='30m';
+  }
+}
+
 // ═══════════════════════════════════════════════════════
-//  SUPABASE — AUTH & SAVE/LOAD
+//  SUPABASE
 // ═══════════════════════════════════════════════════════
 
 async function fazerLogin(){
@@ -646,10 +938,8 @@ async function fazerLogin(){
   showMsg('Entrando…','#c9a84c');
   const {data,error}=await db.auth.signInWithPassword({email,password:senha});
   if(error)return showMsg(traduzErro(error.message));
-  _user=data.user;
-  await iniciarFicha();
+  _user=data.user;await iniciarFicha();
 }
-
 async function fazerCadastro(){
   const email=g('li-email').value.trim(),senha=g('li-senha').value;
   if(!email||!senha)return showMsg('Preencha email e senha.');
@@ -659,40 +949,25 @@ async function fazerCadastro(){
   if(error)return showMsg(traduzErro(error.message));
   showMsg('Conta criada! Já pode entrar.','#4ade80');
 }
-
-async function fazerLogout(){
-  await db.auth.signOut();
-  _user=null;
-  g('login-overlay').style.display='flex';
-  g('topbar').style.display='none';
-}
-
-function showMsg(msg,color='#f87171'){
-  const e=g('login-msg');e.textContent=msg;e.style.color=color;
-}
-
+async function fazerLogout(){await db.auth.signOut();_user=null;g('login-overlay').style.display='flex';g('topbar').style.display='none';}
+function showMsg(msg,color='#f87171'){const e=g('login-msg');e.textContent=msg;e.style.color=color;}
 function traduzErro(msg){
   if(msg.includes('Invalid login'))return 'Email ou senha incorretos.';
   if(msg.includes('Email not confirmed'))return 'Confirme seu email antes de entrar.';
   if(msg.includes('already registered'))return 'Email já cadastrado. Tente entrar.';
   return msg;
 }
-
 async function iniciarFicha(){
-  g('login-overlay').style.display='none';
-  g('topbar').style.display='flex';
-  g('topbar-user').textContent=_user.email;
+  g('login-overlay').style.display='none';g('topbar').style.display='flex';g('topbar-user').textContent=_user.email;
   await loadState();
   renderAttrs();renderSkills();renderArmas();renderSpells();renderProg();
-  fillFromState();
-  bindAll();
+  fillFromState();bindAll();
+  atualizarInfoRaca();
   recalc();
 }
-
 function coletarEstado(){
   SKILLS.forEach(sk=>{S.skills[sk.id]=iv('skill-'+sk.id)});
-  S.nome=g('c-nome')?.value||'Personagem';
-  S.xp=iv('c-xp');
+  S.nome=g('c-nome')?.value||'Personagem';S.xp=iv('c-xp');
   ATTRS.forEach(a=>{S[a]=iv('atr-'+a)});
   S.pv_cur=iv('r-pv-cur');S.mana_cur=iv('r-mana-cur');S.exst_cur=iv('r-exst-cur');
   S.arm_ca=iv('arm-ca');S.arm_dr=iv('arm-dr');S.arm_pen=iv('arm-pen');
@@ -700,39 +975,27 @@ function coletarEstado(){
   S.notas=g('notas')?.value||'';
   ['cabeca','pescoco','corpo','maos','anel1','anel2','pes','cintura'].forEach(k=>{S.eq[k]=g('eq-'+k)?.value||''});
 }
-
 async function saveState(){
-  if(!_user)return;
-  coletarEstado();
-  const {error}=await db.from('fichas').upsert(
-    {user_id:_user.id,dados:S,atualizado_em:new Date().toISOString()},
-    {onConflict:'user_id'}
-  );
+  if(!_user)return;coletarEstado();
+  const {error}=await db.from('fichas').upsert({user_id:_user.id,dados:S,atualizado_em:new Date().toISOString()},{onConflict:'user_id'});
   const ss=g('save-status');
   if(error){console.error(error);if(ss){ss.textContent='❌ erro';ss.style.color='#f87171'}}
-  else{
-    const t=g('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1400);
-    if(ss){ss.textContent='✦ salvo';ss.style.color='#4ade80';setTimeout(()=>{ss.textContent=''},2500)}
-  }
+  else{const t=g('toast');t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1400);if(ss){ss.textContent='✦ salvo';ss.style.color='#4ade80';setTimeout(()=>{ss.textContent=''},2500)}}
 }
-
-async function salvarAgora(){
-  const ss=g('save-status');if(ss){ss.textContent='salvando…';ss.style.color='#c9a84c'}
-  await saveState();
-}
-
+async function salvarAgora(){const ss=g('save-status');if(ss){ss.textContent='salvando…';ss.style.color='#c9a84c'}await saveState();}
 async function loadState(){
   if(!_user)return;
   const {data,error}=await db.from('fichas').select('dados').eq('user_id',_user.id).maybeSingle();
   if(error){console.error(error);return}
   if(data?.dados){
-    const sv=data.dados;
-    S=Object.assign({},S,sv);
+    const sv=data.dados;S=Object.assign({},S,sv);
     if(!S.slots)S.slots={1:[0,0,0,0],2:[0,0,0],3:[0,0,0],4:[0,0,0],5:[0,0,0],6:[0,0,0,0]};
     if(!S.eq)S.eq={};
+    if(!S.raca)S.raca='';
+    // migração: armas antigas sem tipo/ativa
+    S.armas=S.armas.map(a=>({tipo:'corpo',ativa:false,...a}));
   }
 }
-
 let stimer=null;
 function sched(){clearTimeout(stimer);stimer=setTimeout(saveState,800)}
 
@@ -743,8 +1006,16 @@ function sched(){clearTimeout(stimer);stimer=setTimeout(saveState,800)}
 function renderAttrs(){
   const list=g('attr-list');list.innerHTML='';
   ATTRS.forEach(a=>{
+    const rb=getRacaBonus()[a]||0;
     const row=document.createElement('div');row.className='attr-row';
-    row.innerHTML=`<span class="attr-abbr">${a}</span><div class="avw"><input type="number" id="atr-${a}" min="3" max="30" value="${S[a]||10}"></div><span id="ma-${a}" class="attr-ma auto">+0</span><div style="flex:1"><div class="bar-track"><div id="bar-${a}" class="bar-fill" style="width:50%"></div></div></div>`;
+    row.innerHTML=`
+      <span class="attr-abbr">${a}</span>
+      <div class="avw">
+        <input type="number" id="atr-${a}" min="3" max="30" value="${S[a]||10}">
+        <span id="racial-badge-${a}" class="attr-racial" style="display:${rb!==0?'block':'none'}">${rb!==0?(rb>0?'+':'')+rb:''}</span>
+      </div>
+      <span id="ma-${a}" class="attr-ma auto">+0</span>
+      <div style="flex:1"><div class="bar-track"><div id="bar-${a}" class="bar-fill" style="width:50%"></div></div></div>`;
     list.appendChild(row);
     g('atr-'+a).addEventListener('input',()=>{S[a]=iv('atr-'+a);recalc();sched()});
   });
@@ -759,21 +1030,15 @@ function renderSkills(){
     tb.appendChild(tr);
     const inp=g('skill-'+sk.id);
     let valorAnterior=nv;
-    inp.addEventListener('focus',()=>{ valorAnterior=parseInt(inp.value)||0; });
+    inp.addEventListener('focus',()=>{valorAnterior=parseInt(inp.value)||0;});
     inp.addEventListener('input',()=>{
       const novo=parseInt(inp.value)||0;
-      const diff=novo-valorAnterior;
-      // Calcula pontos restantes ANTES desta mudança
-      const xp=iv('c-xp');
-      const nivel=calcNivel(xp);
-      const modIntPP=Math.max(0,Math.floor((( iv('atr-INT')||10)-10)/2));
+      const xp=iv('c-xp'),nivel=calcNivel(xp);
+      const modIntPP=Math.max(0,Math.floor(((iv('atr-INT')||10)-10)/2));
       const ppTotal=20+(nivel-1)*(1+modIntPP);
       const ppGasto=SKILLS.reduce((sum,s)=>sum+(iv('skill-'+s.id)||0),0);
-      const ppRest=ppTotal-ppGasto; // já inclui o novo valor
-      if(ppRest<0){
-        // Reverteu: limita ao máximo possível
-        inp.value=Math.max(0,novo+ppRest);
-      }
+      const ppRest=ppTotal-ppGasto;
+      if(ppRest<0)inp.value=Math.max(0,novo+ppRest);
       valorAnterior=parseInt(inp.value)||0;
       S.skills[sk.id]=valorAnterior;
       recalc();sched();
@@ -781,23 +1046,92 @@ function renderSkills(){
   });
 }
 
+// ═══════════════════════════════════════════════════════
+//  ARSENAL COM TIPO E ATIVA
+// ═══════════════════════════════════════════════════════
+
 function renderArmas(){
   const tb=g('armas-body');tb.innerHTML='';
   S.armas.forEach((arma,i)=>{
+    const isCorpoAtiva=arma.ativa&&arma.tipo==='corpo';
+    const isDistAtiva=arma.ativa&&arma.tipo==='distancia';
     const tr=document.createElement('tr');
-    tr.innerHTML=`<td><input type="text" class="ed" data-i="${i}" data-f="nome" value="${arma.nome}" style="min-width:100px"></td><td><input type="text" class="ed" data-i="${i}" data-f="dano" value="${arma.dano}" style="width:52px"></td><td><input type="text" class="ed" data-i="${i}" data-f="crit" value="${arma.crit}" style="width:70px"></td><td><input type="text" class="ed" data-i="${i}" data-f="alc" value="${arma.alc}" style="width:58px"></td><td><input type="text" class="ed" data-i="${i}" data-f="prop" value="${arma.prop}" style="width:100px"></td><td><button class="srem" onclick="removeArma(${i})">✕</button></td>`;
+    if(isCorpoAtiva)tr.className='arma-ativa-corp';
+    if(isDistAtiva)tr.className='arma-ativa-dist';
+
+    const tipoClass=arma.tipo==='corpo'?'corpo':'distancia';
+    const tipoLabel=arma.tipo==='corpo'?'⚔ Corpo':'🏹 Distância';
+
+    tr.innerHTML=`
+      <td><input type="text" class="ed" data-i="${i}" data-f="nome" value="${arma.nome||''}" style="min-width:90px"></td>
+      <td>
+        <select class="arma-tipo-sel ${tipoClass}" data-i="${i}" title="Tipo de arma">
+          <option value="corpo" ${arma.tipo==='corpo'?'selected':''}>⚔ Corpo</option>
+          <option value="distancia" ${arma.tipo==='distancia'?'selected':''}>🏹 Distância</option>
+        </select>
+      </td>
+      <td><input type="text" class="ed" data-i="${i}" data-f="dano" value="${arma.dano||'1d6'}" style="width:52px"></td>
+      <td><input type="text" class="ed" data-i="${i}" data-f="crit" value="${arma.crit||'20/x2'}" style="width:70px"></td>
+      <td><input type="text" class="ed" data-i="${i}" data-f="alc" value="${arma.alc||'1,5m'}" style="width:55px"></td>
+      <td><input type="text" class="ed" data-i="${i}" data-f="prop" value="${arma.prop||''}" style="width:90px"></td>
+      <td>
+        <div class="arma-ativa-row">
+          <input type="checkbox" class="arma-ativa-chk" data-i="${i}" title="Arma ativa (equipada)" ${arma.ativa?'checked':''}>
+          <span class="ativa-label">${arma.ativa?'✦ ativa':''}</span>
+        </div>
+      </td>
+      <td><button class="srem" onclick="removeArma(${i})">✕</button></td>`;
     tb.appendChild(tr);
   });
-  tb.querySelectorAll('input').forEach(inp=>{inp.addEventListener('input',()=>{const i=parseInt(inp.dataset.i);const f=inp.dataset.f;if(!isNaN(i)&&f){S.armas[i][f]=inp.value;sched()}})});
+
+  // Eventos de texto
+  tb.querySelectorAll('input[data-i]').forEach(inp=>{
+    if(inp.type==='checkbox')return;
+    inp.addEventListener('input',()=>{
+      const i=parseInt(inp.dataset.i),f=inp.dataset.f;
+      if(!isNaN(i)&&f){S.armas[i][f]=inp.value;recalc();sched()}
+    });
+  });
+
+  // Eventos de tipo
+  tb.querySelectorAll('.arma-tipo-sel').forEach(sel=>{
+    sel.addEventListener('change',()=>{
+      const i=parseInt(sel.dataset.i);
+      S.armas[i].tipo=sel.value;
+      renderArmas();recalc();sched();
+    });
+  });
+
+  // Eventos de checkbox ativa
+  tb.querySelectorAll('.arma-ativa-chk').forEach(chk=>{
+    chk.addEventListener('change',()=>{
+      const i=parseInt(chk.dataset.i);
+      const tipo=S.armas[i].tipo;
+      // Desativa outras armas do mesmo tipo ao ativar esta
+      if(chk.checked){
+        S.armas.forEach((a,j)=>{
+          if(j!==i&&a.tipo===tipo)a.ativa=false;
+        });
+        S.armas[i].ativa=true;
+      } else {
+        S.armas[i].ativa=false;
+      }
+      renderArmas();recalc();sched();
+    });
+  });
 }
-function addArma(){S.armas.push({nome:'Nova Arma',dano:'1d6',crit:'20/x2',alc:'1,5m',prop:''});renderArmas();sched()}
-function removeArma(i){S.armas.splice(i,1);renderArmas();sched()}
+
+function addArma(){
+  S.armas.push({nome:'Nova Arma',tipo:'corpo',dano:'1d6',crit:'20/x2',alc:'1,5m',prop:'',ativa:false});
+  renderArmas();sched();
+}
+function removeArma(i){S.armas.splice(i,1);renderArmas();recalc();sched()}
 
 function renderSpells(){
   const cont=g('spells-list');cont.innerHTML='';
   S.spells.forEach((sp,i)=>{
     const div=document.createElement('div');div.className='sr';
-    div.innerHTML=`<div><input type="text" class="ed" data-i="${i}" data-f="nome" value="${sp.nome}" style="font-family:'Cinzel',serif;font-weight:600;color:var(--gold-light);font-size:.8rem;width:100%;margin-bottom:.15rem"><br><input type="text" class="ed" data-i="${i}" data-f="escola" value="${sp.escola}" style="font-size:.72rem;color:var(--mist);width:100%"></div><div style="font-size:.72rem;color:var(--mist)"><div>Tempo: <input type="text" class="ed" data-i="${i}" data-f="tempo" value="${sp.tempo}" style="width:85px;font-size:.72rem"></div><div style="margin-top:.12rem">Alcance: <input type="text" class="ed" data-i="${i}" data-f="alc" value="${sp.alc}" style="width:65px;font-size:.72rem"></div></div><div style="font-size:.72rem;color:var(--mist)">Mana: <input type="text" class="ed" data-i="${i}" data-f="mana" value="${sp.mana}" style="width:35px;font-size:.72rem"></div><div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem"><span class="sbadge">N<input type="text" data-i="${i}" data-f="nivel" value="${sp.nivel}" style="width:14px;font-size:.62rem;font-family:'Fira Code',monospace;background:transparent;border:none;color:var(--gold);outline:none;text-align:center"></span><button class="srem" onclick="removeSpell(${i})">✕</button></div>`;
+    div.innerHTML=`<div><input type="text" class="ed" data-i="${i}" data-f="nome" value="${sp.nome}" style="font-family:'Cinzel',serif;font-weight:600;color:var(--gold-light);font-size:.8rem;width:100%;margin-bottom:.15rem"><br><input type="text" class="ed" data-i="${i}" data-f="escola" value="${sp.escola}" style="font-size:.72rem;color:var(--mist);width:100%"></div><div style="font-size:.72rem;color:var(--mist)"><div>Tempo: <input type="text" class="ed" data-i="${i}" data-f="tempo" value="${sp.tempo}" style="width:85px;font-size:.72rem"></div><div style="margin-top:.12rem">Alcance: <input type="text" class="ed" data-i="${i}" data-f="alc" value="${sp.alc}" style="width:65px;font-size:.72rem"></div></div><div style="font-size:.72rem;color:var(--mist)">Mana: <input type="text" class="ed" data-i="${i}" data-f="mana" value="${sp.mana}" style="width:35px;font-size:.72rem"></div><div style="display:flex;flex-direction:column;align-items:flex-end;gap:.3rem"><span class="sbadge">N<input type="text" data-i="${i}" data-f="nivel" value="${sp.nivel}" style="width:14px;font-family:'Fira Code',monospace;font-size:.62rem;background:transparent;border:none;color:var(--gold);outline:none;text-align:center"></span><button class="srem" onclick="removeSpell(${i})">✕</button></div>`;
     cont.appendChild(div);
   });
   cont.querySelectorAll('input[data-i]').forEach(inp=>{inp.addEventListener('input',()=>{const i=parseInt(inp.dataset.i);const f=inp.dataset.f;if(!isNaN(i)&&f){S.spells[i][f]=inp.value;sched()}})});
@@ -805,58 +1139,40 @@ function renderSpells(){
 function addSpell(){S.spells.push({nome:'Nova Magia',nivel:'1',escola:'',tempo:'2 PA',alc:'30m',mana:'2'});renderSpells();sched()}
 function removeSpell(i){S.spells.splice(i,1);renderSpells();sched()}
 
-// Slots agora recebe o nivel atual e respeita desbloqueio
 function renderSlots(nivel){
   nivel=nivel||calcNivel(iv('c-xp'));
   const desbloq=slotsDoNivel(nivel);
   const grid=g('slot-grid');grid.innerHTML='';
   for(let n=1;n<=6;n++){
-    const maxDesbloq=desbloq[n]||0;
-    const maxTotal=SLOT_MAX[n];
+    const maxDesbloq=desbloq[n]||0,maxTotal=SLOT_MAX[n];
     const col=document.createElement('div');col.className='scol';
     const lbl=document.createElement('span');
-    lbl.className='slbl '+(maxDesbloq>0?'unlocked':'locked-lbl');
-    lbl.textContent='N'+n;
+    lbl.className='slbl '+(maxDesbloq>0?'unlocked':'locked-lbl');lbl.textContent='N'+n;
     col.appendChild(lbl);
     const circles=document.createElement('div');circles.className='scircles';
     for(let s=0;s<maxTotal;s++){
       const dot=document.createElement('div');
-      if(s>=maxDesbloq){
-        // slot bloqueado para este nível
-        dot.className='sc locked';
-      } else {
-        const used=(S.slots[n]||[])[s]===1;
-        dot.className='sc '+(used?'used':'avail');
-        dot.onclick=(()=>{const nn=n,ss=s;return()=>toggleSlot(nn,ss)})();
-      }
+      if(s>=maxDesbloq){dot.className='sc locked';}
+      else{const used=(S.slots[n]||[])[s]===1;dot.className='sc '+(used?'used':'avail');dot.onclick=(()=>{const nn=n,ss=s;return()=>toggleSlot(nn,ss)})();}
       circles.appendChild(dot);
     }
-    col.appendChild(circles);
-    grid.appendChild(col);
+    col.appendChild(circles);grid.appendChild(col);
   }
 }
-
 function toggleSlot(n,idx){
   if(!S.slots[n])S.slots[n]=[];
   S.slots[n][idx]=S.slots[n][idx]===1?0:1;
-  renderSlots();
-  sched();
+  renderSlots();sched();
 }
-
 function renderProg(){
   const tb=g('prog-body');tb.innerHTML='';
   XPT.forEach(row=>{
     const tr=document.createElement('tr');tr.dataset.n=row.n;
-    // Monta string de slots para exibir na tabela
-    const slotStr=Object.entries(row.slots)
-      .filter(([,v])=>v>0)
-      .map(([k,v])=>`N${k}:${v}`)
-      .join(' ');
+    const slotStr=Object.entries(row.slots).filter(([,v])=>v>0).map(([k,v])=>`N${k}:${v}`).join(' ');
     tr.innerHTML=`<td>${row.n}</td><td>${row.xp.toLocaleString('pt-BR')}</td><td>${row.g}</td><td style="font-family:'Fira Code',monospace;font-size:.65rem;color:var(--auto);white-space:nowrap">${slotStr||'—'}</td>`;
     tb.appendChild(tr);
   });
 }
-
 function bindAll(){
   ['c-nome','c-xp'].forEach(id=>{g(id)?.addEventListener('input',()=>{recalc();sched()})});
   ['r-pv-cur','r-mana-cur','r-exst-cur'].forEach(id=>{g(id)?.addEventListener('input',()=>{recalc();sched()})});
@@ -866,7 +1182,6 @@ function bindAll(){
   });
   const n=g('notas');if(n){n.value=S.notas||'';n.addEventListener('input',()=>{S.notas=n.value;sched()})}
 }
-
 function fillFromState(){
   g('c-nome').value=S.nome||'Personagem';
   g('c-xp').value=S.xp||0;
@@ -876,8 +1191,8 @@ function fillFromState(){
   g('arm-ca').value=S.arm_ca||0;g('arm-dr').value=S.arm_dr||0;g('arm-pen').value=S.arm_pen||0;
   g('esc-ca').value=S.esc_ca||0;g('esc-dr').value=S.esc_dr||0;g('esc-pen').value=S.esc_pen||0;
   ATTRS.forEach(a=>{const e=g('atr-'+a);if(e)e.value=S[a]||10});
+  const rs=g('race-select');if(rs)rs.value=S.raca||'';
 }
-
 function init(){
   db.auth.getSession().then(({data:{session}})=>{
     if(session){_user=session.user;iniciarFicha();}
