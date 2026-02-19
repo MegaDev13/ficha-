@@ -181,6 +181,14 @@ footer p{font-size:.78rem;color:var(--mist);opacity:.45}
 /* slot nivel label unlock */
 .slbl.unlocked{color:var(--gold)}
 .slbl.locked-lbl{color:rgba(255,255,255,.15)}
+/* pontos de perícia */
+.pp-bar{background:rgba(0,0,0,.35);border:1px solid rgba(201,168,76,.15);padding:.6rem .8rem;margin-bottom:.8rem;display:flex;justify-content:space-between;align-items:center;gap:.5rem}
+.pp-info{font-family:'Fira Code',monospace;font-size:.72rem;color:var(--mist);line-height:1.5}
+.pp-nums{font-family:'Cinzel Decorative',serif;font-size:1.3rem;text-align:right;white-space:nowrap}
+.pp-nums.ok{color:var(--gold-light)}
+.pp-nums.over{color:#f87171}
+.pp-nums.zero{color:#4ade80}
+.pp-sub{font-family:'Fira Code',monospace;font-size:.6rem;color:var(--mist);display:block;text-align:right}
 </style>
 </head>
 <body>
@@ -345,6 +353,16 @@ footer p{font-size:.78rem;color:var(--mist);opacity:.45}
   <div class="panel">
     <div class="phd"><span>📜</span><h2>Perícias</h2></div>
     <div class="pbd">
+      <div class="pp-bar">
+        <div class="pp-info">
+          Pontos de Perícia<br>
+          <span style="font-size:.6rem">Nível 1: 20 pts · Por nível: 1 + mod INT</span>
+        </div>
+        <div>
+          <div id="pp-restante" class="pp-nums ok">—</div>
+          <span class="pp-sub">restam de <span id="pp-total">—</span></span>
+        </div>
+      </div>
       <div class="tw"><table>
         <thead><tr><th>Perícia</th><th>Attr</th><th>Nível</th><th>Total</th></tr></thead>
         <tbody id="skills-body"></tbody>
@@ -583,6 +601,19 @@ function recalc(){
     if(e){e.textContent=fmt(b);e.className='auto'+(b>0?' pos':b<0?' neg':'')}
   });
 
+  // Pontos de perícia: 20 no nível 1, depois +1+modINT por nível
+  // modINT mínimo 0 para o cálculo de ganho por nível
+  const modIntPP=Math.max(0,MA.INT);
+  const ppTotal=20+(nivel-1)*(1+modIntPP);
+  const ppGasto=SKILLS.reduce((sum,sk)=>sum+(iv('skill-'+sk.id)||0),0);
+  const ppRest=ppTotal-ppGasto;
+  const ppEl=g('pp-restante'),ppTEl=g('pp-total');
+  if(ppEl){
+    ppEl.textContent=ppRest;
+    ppEl.className='pp-nums '+(ppRest<0?'over':ppRest===0?'zero':'ok');
+  }
+  if(ppTEl)ppTEl.textContent=ppTotal;
+
   // XP bar
   const cur=XPT.find(r=>r.n===nivel),nxt=XPT.find(r=>r.n===nivel+1);
   if(cur&&nxt){
@@ -726,7 +757,27 @@ function renderSkills(){
     const tr=document.createElement('tr');
     tr.innerHTML=`<td>${sk.nome}</td><td style="font-family:'Fira Code',monospace;font-size:.7rem;color:var(--mist)">${sk.attr}</td><td><input type="number" id="skill-${sk.id}" class="ed" min="0" max="20" value="${nv}" style="width:48px;font-size:.82rem"></td><td style="text-align:center"><span id="skb-${sk.id}" class="auto">+0</span></td>`;
     tb.appendChild(tr);
-    g('skill-'+sk.id).addEventListener('input',()=>{recalc();sched()});
+    const inp=g('skill-'+sk.id);
+    let valorAnterior=nv;
+    inp.addEventListener('focus',()=>{ valorAnterior=parseInt(inp.value)||0; });
+    inp.addEventListener('input',()=>{
+      const novo=parseInt(inp.value)||0;
+      const diff=novo-valorAnterior;
+      // Calcula pontos restantes ANTES desta mudança
+      const xp=iv('c-xp');
+      const nivel=calcNivel(xp);
+      const modIntPP=Math.max(0,Math.floor((( iv('atr-INT')||10)-10)/2));
+      const ppTotal=20+(nivel-1)*(1+modIntPP);
+      const ppGasto=SKILLS.reduce((sum,s)=>sum+(iv('skill-'+s.id)||0),0);
+      const ppRest=ppTotal-ppGasto; // já inclui o novo valor
+      if(ppRest<0){
+        // Reverteu: limita ao máximo possível
+        inp.value=Math.max(0,novo+ppRest);
+      }
+      valorAnterior=parseInt(inp.value)||0;
+      S.skills[sk.id]=valorAnterior;
+      recalc();sched();
+    });
   });
 }
 
