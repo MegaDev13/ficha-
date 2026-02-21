@@ -230,6 +230,55 @@ footer p{font-size:.78rem;color:var(--mist);opacity:.45}
 .pp-nums.over{color:#f87171}
 .pp-nums.zero{color:#4ade80}
 .pp-sub{font-family:'Fira Code',monospace;font-size:.6rem;color:var(--mist);display:block;text-align:right}
+
+/* ══ SISTEMA DE CLASSES ══ */
+:root{--warrior:#c0392b;--paladin:#f1c40f;--ranger:#27ae60;--rogue:#8e44ad;--mage:#2980b9;--druid:#16a085;--bard:#e67e22;--necro:#7f8c8d}
+.class-wrap{margin-top:1.2rem;width:100%;max-width:700px}
+.class-select-row{display:flex;align-items:center;justify-content:center;gap:.8rem;flex-wrap:wrap}
+#class-select{background:rgba(0,0,0,.6);border:1px solid var(--gold-dark);border-radius:2px;color:var(--gold-light);font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.06rem;padding:.4rem 1rem;outline:none;cursor:pointer;min-width:220px;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .7rem center;padding-right:2rem;transition:border-color .2s}
+#class-select:hover{border-color:var(--gold)}
+#class-select option,#class-select optgroup{background:#1a1510;color:var(--parchment)}
+.class-card{background:rgba(0,0,0,.55);border:1px solid;border-radius:2px;padding:.8rem 1.1rem;text-align:left;display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8rem}
+@media(max-width:600px){.class-card{grid-template-columns:1fr}}
+.class-card-title{grid-column:1/-1;font-family:'Cinzel',serif;font-size:.72rem;letter-spacing:.18rem;color:var(--gold-light);text-transform:uppercase;margin-bottom:.1rem;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap}
+.class-stat-chip{font-family:'Fira Code',monospace;font-size:.62rem;padding:.08rem .35rem;border-radius:2px;background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);color:var(--gold)}
+.class-trait-block{font-size:.73rem;line-height:1.55}
+.class-trait-block strong{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.12rem;text-transform:uppercase;display:block;margin-bottom:.18rem;color:var(--gold)}
+.class-trait-block.passiva strong{color:#4ade80}
+.cls-passiva{background:rgba(74,222,128,.05);border:1px solid rgba(74,222,128,.2);border-left:3px solid #4ade80;padding:.7rem 1rem;margin-bottom:1rem}
+.cls-passiva-title{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.15rem;color:#4ade80;text-transform:uppercase;margin-bottom:.2rem}
+.cls-passiva p{font-size:.82rem;opacity:.85;margin:0}
+.cls-marco{background:rgba(201,168,76,.07);border:1px solid rgba(201,168,76,.4);padding:.55rem .9rem;margin:.35rem 0;display:flex;align-items:flex-start;gap:.7rem}
+.cls-marco-lvl{font-family:'Fira Code',monospace;font-size:.6rem;color:var(--gold);background:rgba(201,168,76,.15);border:1px solid var(--gold-dark);padding:.15rem .45rem;white-space:nowrap;flex-shrink:0;margin-top:.05rem}
+.cls-marco-txt{font-size:.82rem;opacity:.88;line-height:1.5}
+.cls-marco.locked{opacity:.25;filter:grayscale(1)}
+.cls-level-row{margin:.55rem 0;display:grid;grid-template-columns:52px 1fr;gap:.4rem;align-items:start}
+.cls-level-badge{font-family:'Fira Code',monospace;font-size:.58rem;color:var(--gold-dark);background:var(--ink);border:1px solid rgba(201,168,76,.2);padding:.2rem .35rem;text-align:center;white-space:nowrap}
+.cls-talent-picked{background:rgba(0,0,0,.3);border:1px solid rgba(201,168,76,.2);border-left:3px solid var(--gold-dark);padding:.5rem .75rem;position:relative}
+.cls-talent-name{font-family:'Cinzel',serif;font-size:.75rem;color:var(--gold-light);margin-bottom:.1rem}
+.cls-talent-ramo{font-family:'Fira Code',monospace;font-size:.58rem;color:var(--mist);margin-bottom:.15rem}
+.cls-talent-desc{font-size:.8rem;opacity:.8;line-height:1.5}
+.cls-talent-clear{background:transparent;border:none;color:rgba(200,60,60,.4);cursor:pointer;font-size:.7rem;position:absolute;top:.35rem;right:.5rem;padding:.1rem .2rem;transition:color .15s}
+.cls-talent-clear:hover{color:#c0392b}
+.cls-picker{display:flex;flex-direction:column;gap:.3rem}
+.cls-pick-btn{background:rgba(0,0,0,.35);border:1px dashed rgba(201,168,76,.25);padding:.45rem .75rem;font-family:'Crimson Pro',serif;font-size:.82rem;color:var(--mist);cursor:pointer;text-align:left;transition:all .2s;display:flex;align-items:center;gap:.6rem;width:100%}
+.cls-pick-btn:hover{border-color:var(--gold);color:var(--gold-light);background:rgba(201,168,76,.07)}
+.cls-pick-btn.unavail{opacity:.28;cursor:not-allowed;pointer-events:none}
+.cls-pick-ramo{font-family:'Fira Code',monospace;font-size:.55rem;color:var(--gold-dark);border:1px solid rgba(201,168,76,.25);padding:.05rem .25rem;flex-shrink:0;white-space:nowrap}
+.cls-pick-talent-nm{font-family:'Cinzel',serif;font-size:.72rem;color:var(--gold);flex-shrink:0}
+.cls-pick-desc{font-size:.72rem;color:var(--mist);opacity:.7}
+.lvlup-box{background:rgba(212,84,26,.06);border:1px solid rgba(212,84,26,.4);border-left:3px solid #d4541a;padding:.7rem 1rem;margin-top:.7rem}
+.lvlup-title{font-family:'Cinzel',serif;font-size:.63rem;letter-spacing:.15rem;color:#d4541a;text-transform:uppercase;margin-bottom:.5rem;display:flex;align-items:center;gap:.5rem}
+.lvlup-rolls{display:flex;flex-direction:column;gap:.4rem}
+.lvlup-item{display:flex;align-items:center;gap:.6rem}
+.lvlup-item-lvl{font-family:'Fira Code',monospace;font-size:.62rem;color:var(--gold);white-space:nowrap;min-width:55px}
+.roll-btn{background:linear-gradient(135deg,#5a1a08,#8b2a10);border:1px solid rgba(212,84,26,.5);color:#e8c97a;font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.1rem;text-transform:uppercase;padding:.3rem .75rem;cursor:pointer;transition:all .2s;white-space:nowrap}
+.roll-btn:hover{background:linear-gradient(135deg,#7a2208,#c03a18);border-color:#d4541a}
+.roll-btn:disabled{opacity:.4;cursor:not-allowed}
+.roll-result{font-family:'Cinzel Decorative',serif;font-size:1.1rem;color:#4ade80;animation:popIn .3s ease}
+.roll-prev{font-family:'Fira Code',monospace;font-size:.7rem;color:var(--mist);margin-left:.3rem}
+@keyframes popIn{from{opacity:0;transform:scale(1.4)}to{opacity:1;transform:scale(1)}}
+
 </style>
 </head>
 <body>
@@ -302,6 +351,25 @@ footer p{font-size:.78rem;color:var(--mist);opacity:.45}
         </select>
       </div>
       <div id="race-info"></div>
+
+    <!-- SELETOR DE CLASSE -->
+    <div class="class-wrap">
+      <div class="class-select-row">
+        <span class="race-label">⚔ Classe</span>
+        <select id="class-select" onchange="aplicarClasse(this.value)">
+          <option value="">— Selecionar Classe —</option>
+          <option value="guerreiro">⚔️ Guerreiro</option>
+          <option value="paladino">🛡️ Paladino</option>
+          <option value="ranger">🏹 Ranger</option>
+          <option value="ladino">🗡️ Ladino</option>
+          <option value="mago">🔮 Mago</option>
+          <option value="druida">🌿 Druida</option>
+          <option value="bardo">🎭 Bardo</option>
+          <option value="necromante">☠️ Necromante</option>
+        </select>
+      </div>
+      <div id="class-info" style="margin-top:.9rem;display:none"></div>
+    </div>
     </div>
 
   </div>
@@ -352,6 +420,10 @@ footer p{font-size:.78rem;color:var(--mist);opacity:.45}
           </div>
           <div class="rtrack"><div id="bar-perf" class="rfill fperf" style="width:50%">Perf</div></div>
         </div>
+      </div>
+      <div id="lvlup-box" class="lvlup-box" style="display:none">
+        <div class="lvlup-title">📈 Subida de Nível — Role seu PV</div>
+        <div class="lvlup-rolls" id="lvlup-rolls"></div>
       </div>
       <div class="ib" style="margin-top:1rem">
         <div class="ibl">Sistema de Magia</div>
@@ -462,6 +534,20 @@ footer p{font-size:.78rem;color:var(--mist);opacity:.45}
 
 <div class="sep"><span>— ✦ —</span></div>
 
+<!-- HABILIDADES DA CLASSE -->
+<div id="classe-panel" class="panel" style="display:none">
+  <div class="phd" id="cls-phd">
+    <span id="cls-phd-icon">⚔</span>
+    <h2 id="cls-phd-title">Habilidades da Classe</h2>
+    <span id="cls-phd-badge" style="margin-left:auto;font-family:'Fira Code',monospace;font-size:.58rem;padding:.15rem .55rem;border:1px solid rgba(201,168,76,.3);color:var(--gold)"></span>
+  </div>
+  <div class="pbd" id="cls-pbd">
+    <p style="font-size:.85rem;opacity:.5;font-style:italic">Selecione uma classe para ver as habilidades.</p>
+  </div>
+</div>
+
+<div class="sep"><span>— ✦ —</span></div>
+
 <!-- MAGIA -->
 <div class="panel">
   <div class="phd"><span>✨</span><h2>Grimório Pessoal</h2></div>
@@ -524,13 +610,8 @@ footer p{font-size:.78rem;color:var(--mist);opacity:.45}
         <tbody id="prog-body"></tbody>
       </table></div>
       <div>
-        <div class="shd">Marcos de Evolução</div>
-        <div class="ac"><div><span class="an">Nível 4</span><span class="ad">+1 em qualquer atributo</span></div></div>
-        <div class="ac"><div><span class="an">Nível 5</span><span class="ad">+2 INT permanente, Magias N3</span></div></div>
-        <div class="ac"><div><span class="an">Nível 8</span><span class="ad">+1 em qualquer atributo</span></div></div>
-        <div class="ac"><div><span class="an">Nível 10</span><span class="ad">+50% Mana máxima</span></div></div>
-        <div class="ac"><div><span class="an">Nível 15</span><span class="ad">+1 PA por turno</span></div></div>
-        <div class="ac"><div><span class="an">Nível 20</span><span class="ad">Imunidade a 1 elemento</span></div></div>
+        <div class="shd">Marcos de Evolução <span id="marcos-classe-badge" style="font-family:'Fira Code',monospace;font-size:.55rem;color:var(--mist);font-weight:normal;letter-spacing:0"></span></div>
+        <div id="marcos-container"></div>
       </div>
     </div>
   </div>
@@ -548,6 +629,599 @@ footer p{font-size:.78rem;color:var(--mist);opacity:.45}
 <footer><div class="fl">HERANÇA</div><p>Ficha de Personagem · Sistema de RPG de Mesa Quantificado</p></footer>
 
 <script>
+// ═══════════════════════════════════════════════════════
+//  DADOS DAS CLASSES
+// ═══════════════════════════════════════════════════════
+const CLASSES = {
+  guerreiro:{
+    nome:'Guerreiro',icone:'⚔️',cor:'#c0392b',
+    motto:'"A lâmina que nunca para"',
+    pvDado:12,pvAttr:'FOR',manaFator:0,manaAttr:'FOR',
+    pericias:['atletismo','luta','intimidacao','estrategia'],
+    passiva:{nome:'Especialização de Arma',desc:'+MA_FOR ao dano de ataques físicos. Crítico em 19-20 com arma favorita. Proficiência em todas as armaduras.'},
+    ramos:['Maestria de Armas','Defesa Inabalável','Comandante de Campo'],
+    marcos:{5:'Surto de Combate: 1×/combate, ganhe 2 ataques extras como Ação Menor.',10:'Resistência Épica: DR natural 3 + Imune a Medo.',15:'Fúria de Batalha: +3 ataques/turno por 5 rodadas, 1×/desc. longo.',20:'Lenda Marcial: +5 FOR permanente + Imunidade a Dano Não-Mágico.'},
+    talentos:{
+      ramo1:[
+        {nivel:2,nome:'Golpe Poderoso',desc:'1×/turno, adicione +1d8 ao dano de um ataque (Ação Menor).'},
+        {nivel:4,nome:'Ataque Duplo',desc:'Realize 2 ataques físicos como Ação Padrão (2 PA).'},
+        {nivel:6,nome:'Pancada Penetrante',desc:'Seus ataques ignoram DR ≤ Nível ÷ 3.'},
+        {nivel:8,nome:'Golpe Arrasador',desc:'3 ataques como Ação Padrão. Se os 3 acertam o mesmo alvo: +2d8 bônus.'},
+        {nivel:10,nome:'Mestre das Armas',desc:'Troca de arma é Ação Livre. Proficiência total em todas as armas.'},
+      ],
+      ramo2:[
+        {nivel:2,nome:'Postura Defensiva',desc:'Ação Menor: +2 CA e DR 2 até início do próximo turno.'},
+        {nivel:4,nome:'Aparar',desc:'Reação: negue 1 ataque físico/rodada. Custo: 1 PA do próximo turno.'},
+        {nivel:6,nome:'Contra-ataque',desc:'Após Aparar com sucesso: faça 1 ataque como Reação gratuita.'},
+        {nivel:8,nome:'Vigor de Ferro',desc:'3×/combate, Reação: Resistência 50% ao próximo dano recebido.'},
+        {nivel:10,nome:'Redução de Impacto',desc:'DR natural = Nível ÷ 4 (arredondado). Cumulativo com armadura.'},
+      ],
+      ramo3:[
+        {nivel:2,nome:'Grito de Guerra',desc:'Ação Menor: aliados em 10m ganham +1 a ataques por 3 rodadas.'},
+        {nivel:4,nome:'Tática de Flanqueamento',desc:'Você e 1 aliado têm Vantagem em ataques contra o mesmo alvo.'},
+        {nivel:6,nome:'Inspiração Marcial',desc:'1×/combate: conceda +2d6 de dano ao ataque de um aliado (Livre).'},
+        {nivel:8,nome:'Ordem de Carga',desc:'Ação Padrão: todos aliados em 15m podem mover 3m e atacar.'},
+        {nivel:10,nome:'Moral Inabalável',desc:'Aliados em 15m imunes a Medo. Falhas críticas deles: rerolam 1×.'},
+      ]
+    }
+  },
+  paladino:{
+    nome:'Paladino',icone:'🛡️',cor:'#f1c40f',
+    motto:'"A fé que protege e condena"',
+    pvDado:10,pvAttr:'FOR',manaFator:0.6,manaAttr:'CAR',
+    pericias:['atletismo','lideranca','medicina','diplomacia'],
+    passiva:{nome:'Aura Sagrada',desc:'Aliados em 3m ganham +MA_CAR a saves. No N10 raio aumenta para 9m. Proficiência em armaduras pesadas.'},
+    ramos:['Protetor Sagrado','Vingador Divino','Arauto da Fé'],
+    marcos:{5:'Imposição de Mãos I: cura (Nível×MA_CAR) PV por Ação Padrão, 2×/desc. longo.',10:'Aura de Coragem: aliados em 9m imunes a Medo. Paladino imune a Encanto.',15:'Julgamento Divino: 1×/combate — Atordoado 3 rodadas (save FOR DC 18+CAR).',20:'Campeão Sagrado: +4 CAR permanente + imune a Necromancia e Maldições.'},
+    talentos:{
+      ramo1:[
+        {nivel:2,nome:'Escudo Divino',desc:'Reação: escudo de luz absorve (MA_CAR×3) dano para 1 aliado.'},
+        {nivel:4,nome:'Cura Sagrada',desc:'2d8+CAR de cura (Ação Menor, 2 Mana, 2×/combate).'},
+        {nivel:6,nome:'Santuário',desc:'Criaturas devem salvar SAB DC 12+CAR para atacar o Paladino.'},
+        {nivel:8,nome:'Proteção Divina',desc:'+4 a todos os saves de 1 aliado por 1 hora (sem concentração).'},
+        {nivel:10,nome:'Bastião Sagrado',desc:'1×/combate: todo dano em aliados em 6m reduzido à metade por 1 rodada.'},
+      ],
+      ramo2:[
+        {nivel:2,nome:'Golpe Divino',desc:'+1d6 radiante ao ataque físico (1 Mana).'},
+        {nivel:4,nome:'Marcar p/ Destruição',desc:'Marque 1 alvo: +1d8 de dano vs ele até o fim do combate.'},
+        {nivel:6,nome:'Sentença',desc:'Alvo salva FOR DC 12+CAR ou fica Paralisado por 1 rodada.'},
+        {nivel:8,nome:'Golpe Sagrado Aprimorado',desc:'+2d8 radiante + Cego 1 rodada (save DES).'},
+        {nivel:10,nome:'Execução Divina',desc:'Alvo <30% PV: dano ×2. 1×/combate.'},
+      ],
+      ramo3:[
+        {nivel:2,nome:'Sermão Inspirador',desc:'+1d4 a testes de perícia a aliados em 6m por 1 minuto.'},
+        {nivel:4,nome:'Aura de Verdade',desc:'Detecta mentiras e ilusões em 6m. Aliados +2 vs Encanto.'},
+        {nivel:6,nome:'Bênção de Combate',desc:'+2 a ataques e saves do grupo (Ação Padrão, 3 rodadas).'},
+        {nivel:8,nome:'Palavra de Poder',desc:'1 aliado refaz qualquer rolagem falha. 2×/desc. curto.'},
+        {nivel:10,nome:'Proclamação Santa',desc:'Aliados: +2d6 dano radiante por 3 rodadas. 1×/combate.'},
+      ]
+    }
+  },
+  ranger:{
+    nome:'Ranger',icone:'🏹',cor:'#27ae60',
+    motto:'"O rastreador de mundos"',
+    pvDado:10,pvAttr:'DES',manaFator:0.4,manaAttr:'SAB',
+    pericias:['pontaria','sobrevivencia','furtividade','percepcao'],
+    passiva:{nome:'Inimigo Predileto',desc:'Escolha 1 tipo de criatura: +MA_SAB a dano e Vantagem em rastrear/Percepção vs eles.'},
+    ramos:['Atirador de Elite','Sobrevivente','Companheiro Animal'],
+    marcos:{5:'Tiro Veloz: 3 tiros como Ação Maior sem penalidade de precisão.',10:'Sentinela da Natureza: imune a armadilhas e surpresa em terreno natural.',15:'Rajada de Flechas: 5 tiros em arco (Ação Completa), cada um acerta automaticamente.',20:'Ranger Lendário: +4 DES permanente + Invisibilidade natural em terreno coberto.'},
+    talentos:{
+      ramo1:[
+        {nivel:2,nome:'Tiro Preciso',desc:'+MA_DES a dano de ataques à distância.'},
+        {nivel:4,nome:'Tiro no Ponto Fraco',desc:'Ignore CA de armadura leve/média 1×/turno.'},
+        {nivel:6,nome:'Chuva de Flechas',desc:'Ataque 3 alvos em 6m com 1 Ação Padrão (dano normal cada).'},
+        {nivel:8,nome:'Tiro Perfurante',desc:'Flechas ignoram DR ≤ nível e atingem alvos em linha reta.'},
+        {nivel:10,nome:'Sniper',desc:'Sem desvantagem por longa distância. Crítico em 18-20 à distância.'},
+      ],
+      ramo2:[
+        {nivel:2,nome:'Rastreador',desc:'Siga rastros com Vantagem. Não pode ser rastreado sem magia.'},
+        {nivel:4,nome:'Emboscada',desc:'Ataques em turno de surpresa: +2d6 dano e alvo Atordoado.'},
+        {nivel:6,nome:'Terreno Favorável',desc:'Em terreno natural: +2 CA, +2 ataques, ignorar terreno difícil.'},
+        {nivel:8,nome:'Reflexos Animais',desc:'Nunca surpreendido. Iniciativa: sempre +5.'},
+        {nivel:10,nome:'Fantasma da Floresta',desc:'Move em terreno natural sem deixar rastros ou sons.'},
+      ],
+      ramo3:[
+        {nivel:2,nome:'Parceiro Animal',desc:'Vincule um animal (CR ≤ Nível÷3) que age no seu turno.'},
+        {nivel:4,nome:'Vínculo Profundo',desc:'Companheiro: PV = seu PV máx ÷ 2. Compartilhe Percepção.'},
+        {nivel:6,nome:'Comando Tático',desc:'Companheiro ataca + flanqueia. +1d6 dano no flanqueio.'},
+        {nivel:8,nome:'Forma Bestial',desc:'2×/combate: entre na mente do companheiro por 3 rodadas.'},
+        {nivel:10,nome:'Almas Ligadas',desc:'Companheiro morto ressurge com 1 PV após 1h. CR ≤ Nível÷2.'},
+      ]
+    }
+  },
+  ladino:{
+    nome:'Ladino',icone:'🗡️',cor:'#8e44ad',
+    motto:'"A lâmina que nunca foi vista"',
+    pvDado:8,pvAttr:'DES',manaFator:0.4,manaAttr:'INT',
+    pericias:['furtividade','acrobacia','investigacao','intimidacao'],
+    passiva:{nome:'Ataque Furtivo',desc:'+1d6 dano por 2 níveis (máx +10d6 no N20) quando tiver Vantagem ou aliado adjacente ao alvo.'},
+    ramos:['Assassino','Ladrão das Sombras','Espião'],
+    marcos:{5:'Evasão: ao salvar DES, tome 0 dano em vez de metade.',10:'Mestre das Sombras: invisível em penumbra como Ação Livre.',15:'Golpe Letal: 1×/combate, ataque com dano máximo + 5d6 extra.',20:'Sombra Viva: invisível permanentemente em luz baixa. Teletransporte 9m como Ação Menor.'},
+    talentos:{
+      ramo1:[
+        {nivel:2,nome:'Golpe Sujo',desc:'Ao acertar Ataque Furtivo, aplique 1 condição (Lento/Cego/Atordoado 1 rodada).'},
+        {nivel:4,nome:'Assassinato',desc:'Alvo que não agiu no combate: Ataque Furtivo com dano máximo.'},
+        {nivel:6,nome:'Veneno Refinado',desc:'Aplique veneno em arma (Ação Menor): +2d6 veneno/3 rodadas (save CON).'},
+        {nivel:8,nome:'Morte Silenciosa',desc:'Matar antes que alvo aja: sem alarme. Próximo ataque oculto grátis.'},
+        {nivel:10,nome:'Golpe Perfeito',desc:'1×/combate: Ataque Furtivo é crítico automático.'},
+      ],
+      ramo2:[
+        {nivel:2,nome:'Deslizar nas Sombras',desc:'Move metade da velocidade sem Percepção passiva detectar (Ação Livre).'},
+        {nivel:4,nome:'Desaparecer',desc:'Invisível por 2 rodadas (Ação Menor). Quebra ao atacar.'},
+        {nivel:6,nome:'Reflexos de Gato',desc:'Reação a qualquer ataque: mova 3m — ataque tem Desvantagem.'},
+        {nivel:8,nome:'Sombra Persistente',desc:'Invisibilidade dura 5 rodadas e não quebra ao atacar.'},
+        {nivel:10,nome:'Umbral',desc:'Teletransporte entre sombras em 30m. Ação Menor. 2×/combate.'},
+      ],
+      ramo3:[
+        {nivel:2,nome:'Disfarce Perfeito',desc:'Mude aparência em 1 minuto. DC Percepção = 10+nível para detectar.'},
+        {nivel:4,nome:'Leitura de Alvo',desc:'Ação Menor: +2 a todos os ataques vs 1 alvo (dura 1 combate).'},
+        {nivel:6,nome:'Rede de Informantes',desc:'Em qualquer cidade: informação em 1d4h sobre qualquer alvo.'},
+        {nivel:8,nome:'Dublê',desc:'1×/combate: troque lugar com aliado quando for ser atingido (Reação).'},
+        {nivel:10,nome:'Manipulação Mestra',desc:'Ao final de conversa: alvo acredita em 1 mentira (save SAB DC 12+INT).'},
+      ]
+    }
+  },
+  mago:{
+    nome:'Mago',icone:'🔮',cor:'#2980b9',
+    motto:'"O cosmos dobrado pela vontade"',
+    pvDado:6,pvAttr:'INT',manaFator:1.0,manaAttr:'INT',
+    pericias:['conhec_arc','conhec_mag','investigacao','estrategia'],
+    passiva:{nome:'Grimório Vivo',desc:'Aprenda 2 magias extras por nível par. DC de Conjuração: +MA_INT adicional.'},
+    ramos:['Evocador','Conjurador','Ilusionista'],
+    marcos:{5:'Metamagia I: 2×/desc. longo, modifique uma magia (Ampliar/Estender/Maximizar).',10:'Conjuração Instintiva: magias N3− como Ação Menor. Recupere 20% Mana/desc. curto.',15:'Magia Épica: conjure magias N6 sem slot (apenas Mana). +2 DC em todas.',20:'Archmago: todas as magias maximizadas automaticamente. Imune a magias N4−.'},
+    talentos:{
+      ramo1:[
+        {nivel:2,nome:'Intensidade Arcana',desc:'+MA_INT a dano de magias de dano direto.'},
+        {nivel:4,nome:'Bomba Mágica',desc:'1×/turno: AOE +3m de raio sem custo extra em 1 magia.'},
+        {nivel:6,nome:'Sequência de Feitiços',desc:'Lance 2 magias N3− na mesma Ação Padrão. 2×/combate.'},
+        {nivel:8,nome:'Sobrecarga Arcana',desc:'Dobre o dano de 1 magia. Custo: +50% Mana. 1×/combate.'},
+        {nivel:10,nome:'Tempestade Mágica',desc:'1×/desc. longo: 1 magia sem custo de Mana e com Vantagem no alvo.'},
+      ],
+      ramo2:[
+        {nivel:2,nome:'Familiar',desc:'Vincule criatura mágica (Familiar). Age no seu turno, compartilha sentidos.'},
+        {nivel:4,nome:'Invocação Arcana',desc:'Conjure 1 Elementar Menor (CR ≤ Nível÷2) por 10 min. 4 Mana.'},
+        {nivel:6,nome:'Portal de Emergência',desc:'Teletransporte com até 4 aliados tocando a 90m. 1×/desc. curto.'},
+        {nivel:8,nome:'Exército Arcano',desc:'Invoque 3 constructos mágicos (CR 2 cada). 1×/desc. longo.'},
+        {nivel:10,nome:'Conjuração Suprema',desc:'Traga criatura CR ≤ nível — obedece por 1 hora sem save.'},
+      ],
+      ramo3:[
+        {nivel:2,nome:'Ilusão Minor',desc:'Crie ilusão visual+som em 9m por 10 min. DC Percepção = 10+INT.'},
+        {nivel:4,nome:'Máscara Arcana',desc:'Altere aparência e voz perfeitamente por 8 horas.'},
+        {nivel:6,nome:'Labirinto de Espelhos',desc:'Zona 6m×6m: Confuso ao entrar (save INT DC 12+INT).'},
+        {nivel:8,nome:'Cópia Perfeita',desc:'Crie duplicata ilusória que luta com metade de sua perícia.'},
+        {nivel:10,nome:'Realidade Forjada',desc:'Ambiente ilusório 30m×30m. Dura 1 hora, concentração.'},
+      ]
+    }
+  },
+  druida:{
+    nome:'Druida',icone:'🌿',cor:'#16a085',
+    motto:'"A natureza que respira e devora"',
+    pvDado:8,pvAttr:'SAB',manaFator:0.8,manaAttr:'SAB',
+    pericias:['sobrevivencia','medicina','percepcao','atletismo'],
+    passiva:{nome:'Sintonia Natural',desc:'Fale com animais e plantas. +MA_SAB a todos os testes em terreno natural.'},
+    ramos:['Forma Selvagem','Guardião da Natureza','Invocador'],
+    marcos:{5:'Forma Selvagem Aprimorada: besta CR ≤ Nível÷3. +4 FOR e DES durante forma.',10:'Coração da Floresta: imune a veneno/doença. Plantas obedecem em 30m.',15:'Grande Forma: criatura CR ≤ Nível÷2 mantendo habilidades mágicas.',20:'Avatar da Natureza: imune a dano elemental. Forma ilimitada. Regen 10 PV/rodada.'},
+    talentos:{
+      ramo1:[
+        {nivel:2,nome:'Forma Bestial',desc:'Transforme em besta CR ≤ 1/2 por 1 hora. Mantenha INT e SAB.'},
+        {nivel:4,nome:'Garras da Natureza',desc:'Em forma bestial: +1d6 veneno + imune a ataques oportunos.'},
+        {nivel:6,nome:'Fusão Elemental',desc:'Mescle com elemento (água/terra/fogo/ar). 10 min. 3 Mana.'},
+        {nivel:8,nome:'Forma de Tempestade',desc:'Transforme em elementar CR ≤ Nível÷3 por 30 min.'},
+        {nivel:10,nome:'Forma Perfeita',desc:'Formas têm PV = seu PV máximo. Transformação é Ação Menor.'},
+      ],
+      ramo2:[
+        {nivel:2,nome:'Crescimento',desc:'Plantas em 6m: terreno difícil p/ inimigos, vantagem p/ aliados.'},
+        {nivel:4,nome:'Chuva Ácida',desc:'Chuva em 10m: 2d6 ácido/rodada por 3 rodadas. Concentração.'},
+        {nivel:6,nome:'Muro de Espinhos',desc:'Parede 15m longa: 3d6 + prende (save FOR DC 12+SAB).'},
+        {nivel:8,nome:'Chamado da Natureza',desc:'Chame 2d6 animais CR ≤ Nível÷4 por 10 min.'},
+        {nivel:10,nome:'Tempestade Elemental',desc:'5d8 relâmpago/turno em 30m. Concentração (10 turnos).'},
+      ],
+      ramo3:[
+        {nivel:2,nome:'Aliado Animal',desc:'Animal CR ≤ 1 luta permanentemente ao seu lado.'},
+        {nivel:4,nome:'Enxame',desc:'Invoque enxame de insetos: 2d6 + Distraído em 3m. 2 Mana.'},
+        {nivel:6,nome:'Grande Aliado',desc:'Criatura natural CR ≤ Nível÷2 por 1 hora. 5 Mana.'},
+        {nivel:8,nome:'Círculo de Invocação',desc:'3 criaturas CR ≤ Nível÷3 obedecem. 1×/desc. longo.'},
+        {nivel:10,nome:'Guardião Ancestral',desc:'Criatura CR = nível (elementar/besta lendária). 1×/desc. longo.'},
+      ]
+    }
+  },
+  bardo:{
+    nome:'Bardo',icone:'🎭',cor:'#e67e22',
+    motto:'"A palavra que vence guerras"',
+    pvDado:8,pvAttr:'CAR',manaFator:0.8,manaAttr:'CAR',
+    pericias:['diplomacia','lideranca','intimidacao','conhec_mag'],
+    passiva:{nome:'Inspiração Bárdica',desc:'Distribua MA_CAR dados de Inspiração (d6→d8 N10→d10 N15) por combate a aliados.'},
+    ramos:['Inspirador','Sabotador','Segredos Mágicos'],
+    marcos:{5:'Inspiração de Batalha: Inspiração +MA_CAR dados, pode ser usada em Reações também.',10:'Grande Concerto: 1×/combate, todos os talentos de Inspiração grátis por 2 rodadas.',15:'Inspiração Lendária: dados de Inspiração sobem para d12, usáveis após a rolagem.',20:'Bardo Lendário: Inspiração ilimitada. Segredos Mágicos: aprenda qualquer habilidade.'},
+    talentos:{
+      ramo1:[
+        {nivel:2,nome:'Palavra de Encorajamento',desc:'+1d6 a ataques de aliado (Ação Livre, 1 dado/turno).'},
+        {nivel:4,nome:'Palavra de Cura',desc:'1d8+CAR de cura (Ação Livre, 2×/combate).'},
+        {nivel:6,nome:'Canção de Moral',desc:'+2 ataques e Defesas a aliados em 15m (Ação Padrão, 3 rod.).'},
+        {nivel:8,nome:'Canto de Cura',desc:'2d8+CAR de cura a todos em 10m (Ação Padrão).'},
+        {nivel:10,nome:'Epopeia de Batalha',desc:'+4 ataques, Defesas e Iniciativa por 5 rodadas. 1×/combate.'},
+      ],
+      ramo2:[
+        {nivel:2,nome:'Canção do Lamento',desc:'−2 saves em 1 inimigo por 3 rodadas (Ação Menor).'},
+        {nivel:4,nome:'Acorde Dissonante',desc:'Interrompa concentração inimiga automaticamente (Reação).'},
+        {nivel:6,nome:'Melodia de Medo',desc:'Amedrontado por 3 rodadas (save SAB DC 10+CAR).'},
+        {nivel:8,nome:'Aria do Ódio',desc:'2 inimigos se atacam mutuamente por 1 rodada (save SAB).'},
+        {nivel:10,nome:'Sinfonia Sombria',desc:'Confuso por 3 rodadas (save SAB DC 14+CAR).'},
+      ],
+      ramo3:[
+        {nivel:2,nome:'Jack de Todos',desc:'Perícias sem treinamento: sem penalidade, trate como Nível 1.'},
+        {nivel:4,nome:'Segredo Mágico I',desc:'Aprenda 2 magias N2− de qualquer lista.'},
+        {nivel:6,nome:'Habilidade Universal',desc:'Aprenda qualquer perícia no nível 3 instantaneamente.'},
+        {nivel:8,nome:'Segredo Mágico II',desc:'Aprenda 2 magias N3− de qualquer lista.'},
+        {nivel:10,nome:'Conhecedor Universal',desc:'Entenda todas as línguas e culturas.'},
+      ]
+    }
+  },
+  necromante:{
+    nome:'Necromante',icone:'☠️',cor:'#7f8c8d',
+    motto:'"A linha entre o vivo e o morto"',
+    pvDado:6,pvAttr:'FOR',manaFator:1.2,manaAttr:'INT',
+    pericias:['conhec_arc','intimidacao','investigacao','medicina'],
+    passiva:{nome:'Drenagem de Vida',desc:'Cada morto-vivo sob controle regenera 1 Mana/rodada para você (máx Nível×2). DC de Necromancia +2.'},
+    ramos:['Senhor dos Mortos','Vampiro Arcano','Lich em Potencial'],
+    marcos:{5:'Domínio dos Mortos: mortos-vivos ganham +4 Defesas e +2d6 dano.',10:'Senhor Absoluto dos Mortos: anime criaturas com CR ≤ seu Nível.',15:'Transcendência Necróptica: imune a Veneno, Doença, Charme. Mortos ignoram DR inimiga.',20:'Lich: Phylacterium vincula sua alma. Imune a morte por dano. Mortos ilimitados.'},
+    talentos:{
+      ramo1:[
+        {nivel:2,nome:'Animar Mortos',desc:'Controle até MA_INT mortos-vivos. Agem no seu turno.'},
+        {nivel:4,nome:'Mortos Fortalecidos',desc:'PV de mortos-vivos ×1,5. +2 a todos os ataques deles.'},
+        {nivel:6,nome:'Exército em Marcha',desc:'Seus mortos agem com 3 PA cada (em vez de 2).'},
+        {nivel:8,nome:'Ressurreição em Batalha',desc:'Reanime morto adjacente durante combate (Ação Padrão, 4 Mana).'},
+        {nivel:10,nome:'Legião',desc:'Limite de mortos = MA_INT×2. CR dos mortos ≤ Nível÷2.'},
+      ],
+      ramo2:[
+        {nivel:2,nome:'Toque Drenador',desc:'2d6 necrótico em toque + cura você pelo mesmo valor. 1 Mana.'},
+        {nivel:4,nome:'Vampirismo Arcano',desc:'Ao ferir conjuradores: roube MA_INT Mana por acerto.'},
+        {nivel:6,nome:'Sugador de Almas',desc:'Alvo perde MA_INT de seu PV máximo por 1 hora.'},
+        {nivel:8,nome:'Dreno em Massa',desc:'Toque Drenador atinge até 3 alvos simultaneamente.'},
+        {nivel:10,nome:'Explosão Vital',desc:'Ao matar: exploda vida em 5m — 2d8 necrótico a todos.'},
+      ],
+      ramo3:[
+        {nivel:2,nome:'Resistência da Morte',desc:'+4 a saves contra morte. +MA_INT a saves vs condições.'},
+        {nivel:4,nome:'Maldição da Morte',desc:'Marque alvo: perde −2 a todos saves/rodada (acumula, máx −10).'},
+        {nivel:6,nome:'Visão da Morte',desc:'Veja auras de mortos, moribundos e maldições em 18m.'},
+        {nivel:8,nome:'Forma Semi-Morta',desc:'Resistência 25% a dano físico. Imune a Veneno e Doença.'},
+        {nivel:10,nome:'Phylacterium',desc:'Crie objeto de vinculação de alma. Se morrer: retorne em 1d4 dias.'},
+      ]
+    }
+  }
+};
+
+// ═══════════════════════════════════════════════════════
+//  SISTEMA DE CLASSES — FUNÇÕES
+// ═══════════════════════════════════════════════════════
+
+function getClasse(){ return CLASSES[S.classe]||null; }
+
+function calcPvMax(nivel,MA){
+  const cls=getClasse();
+  let pvBase,pvBonus=0;
+  if(S.raca==='anao') pvBonus=2*(nivel-1);
+  if(S.raca==='elfo') pvBonus=-2*(nivel-1);
+  if(S.raca==='gnomo') pvBonus=-(nivel-1);
+  if(!cls){
+    // fallback genérico
+    return Math.max(1,(10+MA.FOR)+(nivel-1)*Math.max(5+MA.FOR,1)+pvBonus);
+  }
+  const mod=MA[cls.pvAttr]||0;
+  // Nível 1: 10 + mod + dado máximo
+  pvBase=10+mod+cls.pvDado;
+  // Níveis 2+: soma dos rolls (ou média se ainda não rolou)
+  const avg=Math.ceil(cls.pvDado/2);
+  for(let n=2;n<=nivel;n++){
+    const rolled=S.pvRolls&&S.pvRolls[n]!==undefined;
+    pvBase+=Math.max(1,rolled?S.pvRolls[n]+mod:avg+mod);
+  }
+  return Math.max(1,pvBase+pvBonus);
+}
+
+function calcManaMax(nivel,MA){
+  const cls=getClasse();
+  if(S.raca==='moldado') return 0;
+  if(!cls){
+    let m=nivel*10+MA.INT*10;
+    if(S.raca==='cinzeiro') m+=4*nivel;
+    return m;
+  }
+  if(cls.manaFator===0) return 0;
+  const mod=MA[cls.manaAttr]||0;
+  let m=Math.floor((nivel*10+mod*10)*cls.manaFator);
+  if(S.raca==='cinzeiro') m+=4*nivel;
+  return m;
+}
+
+function getUnrolledLevels(nivel){
+  // Returns array of levels 2..nivel that have no roll yet
+  if(!getClasse()) return [];
+  const out=[];
+  for(let n=2;n<=nivel;n++){
+    if(!S.pvRolls||S.pvRolls[n]===undefined) out.push(n);
+  }
+  return out;
+}
+
+function aplicarClasse(classeId){
+  S.classe=classeId;
+  if(!S.pvRolls) S.pvRolls={};
+  if(!S.classeTalentos) S.classeTalentos={};
+  atualizarInfoClasse();
+  recalc();
+  sched();
+}
+
+function atualizarInfoClasse(){
+  const sel=g('class-select');
+  if(sel) sel.value=S.classe||'';
+  const info=g('class-info');
+  if(!info) return;
+  const cls=getClasse();
+  if(!cls){info.style.display='none';return;}
+  const manaLabel=cls.manaFator===0?'Nenhum':(cls.manaFator*100)+'% da fórmula';
+  const pericsHtml=cls.pericias.map(p=>{
+    const sk=SKILLS.find(s=>s.id===p);
+    return sk?sk.nome:p;
+  }).join(' · ');
+  info.style.display='block';
+  info.innerHTML=`<div class="class-card" style="border-color:${cls.cor}40;background:${cls.cor}18">
+    <div class="class-card-title">${cls.icone} ${cls.nome}
+      <span class="class-stat-chip">d${cls.pvDado} PV</span>
+      <span class="class-stat-chip">Mana: ${manaLabel}</span>
+      <span class="class-stat-chip">Attr: ${cls.pvAttr}</span>
+    </div>
+    <div class="class-trait-block passiva">
+      <strong>🟢 Passiva — ${cls.passiva.nome}</strong>${cls.passiva.desc}
+    </div>
+    <div class="class-trait-block">
+      <strong style="color:var(--auto)">🔵 Perícias Preferidas</strong>${pericsHtml}
+    </div>
+    <div class="class-trait-block" style="grid-column:1/-1;opacity:.65;font-style:italic">
+      ${cls.motto}
+    </div>
+  </div>`;
+}
+
+// ─── Escolhas de Talentos ───
+function getEscolhasRamo(ramo,nivel){
+  // How many times was this ramo chosen up to but NOT including nivel?
+  if(!S.classeTalentos) return 0;
+  let count=0;
+  const cls=getClasse();if(!cls)return 0;
+  for(let n=2;n<nivel;n+=2){
+    if(S.classeTalentos[n]===ramo) count++;
+  }
+  return count;
+}
+
+function getTalentoDisponivel(ramo,nivel){
+  const cls=getClasse();if(!cls)return null;
+  const t=cls.talentos[ramo];if(!t||!t.length)return null;
+  const count=getEscolhasRamo(ramo,nivel);
+  return count<t.length?t[count]:null;
+}
+
+function escolherTalento(nivel,ramo){
+  if(!S.classeTalentos) S.classeTalentos={};
+  S.classeTalentos[nivel]=ramo;
+  const nivelAtual=calcNivel(iv('c-xp'));
+  renderHabilidadesClasse(nivelAtual);
+  sched();
+}
+
+function limparTalento(nivel){
+  if(!S.classeTalentos) return;
+  // Clear this and all higher levels that might depend on it
+  // (simple: just clear this level)
+  delete S.classeTalentos[nivel];
+  const nivelAtual=calcNivel(iv('c-xp'));
+  renderHabilidadesClasse(nivelAtual);
+  sched();
+}
+
+function renderHabilidadesClasse(nivel){
+  const panel=g('classe-panel');
+  const pbd=g('cls-pbd');
+  const badge=g('cls-phd-badge');
+  const icon=g('cls-phd-icon');
+  const title=g('cls-phd-title');
+  const cls=getClasse();
+
+  if(!cls){
+    if(panel) panel.style.display='none';
+    return;
+  }
+  if(panel) panel.style.display='block';
+  if(icon) icon.textContent=cls.icone;
+  if(title) title.textContent='Habilidades — '+cls.nome;
+  if(badge) badge.textContent='d'+cls.pvDado+' PV · '+cls.ramos.join(' · ');
+
+  // Apply color to panel header
+  const phd=g('cls-phd');
+  if(phd){
+    phd.style.borderBottom='2px solid '+cls.cor+'80';
+  }
+
+  let html='';
+
+  // Passiva
+  html+=`<div class="cls-passiva">
+    <div class="cls-passiva-title">⚡ Passiva — ${cls.passiva.nome}</div>
+    <p>${cls.passiva.desc}</p>
+  </div>`;
+
+  // Marcos section header
+  html+=`<div class="shd" style="margin-top:.8rem;margin-bottom:.4rem">Marcos de Poder</div>`;
+  [5,10,15,20].forEach(mn=>{
+    const reached=nivel>=mn;
+    html+=`<div class="cls-marco${reached?'':' locked'}">
+      <span class="cls-marco-lvl">★ N${mn}</span>
+      <span class="cls-marco-txt">${cls.marcos[mn]||'—'}</span>
+    </div>`;
+  });
+
+  // Talent levels
+  const evenLevels=[2,4,6,8,10,12,14,16,18,20];
+  html+=`<div class="shd" style="margin-top:1.2rem;margin-bottom:.4rem">Árvore de Talentos</div>`;
+
+  evenLevels.forEach(n=>{
+    const reachable=nivel>=n;
+    const escolha=S.classeTalentos&&S.classeTalentos[n];
+    // Marco level also has a talent at 10 and 20 but different — talentos go up to level 10 per ramo
+    // For levels > 10, ramos continue but we'll handle naturally via count
+    
+    let rowHtml='';
+    if(!reachable){
+      rowHtml=`<div style="opacity:.2;font-size:.75rem;font-style:italic;padding:.35rem .5rem">Desbloqueado no Nível ${n}</div>`;
+    } else if(escolha){
+      // Show chosen talent
+      const t=getTalentoEscolhido(n,escolha);
+      const ramoNome=cls.ramos[['ramo1','ramo2','ramo3'].indexOf(escolha)]||escolha;
+      rowHtml=`<div class="cls-talent-picked">
+        <button class="cls-talent-clear" onclick="limparTalento(${n})" title="Remover escolha">✕</button>
+        <div class="cls-talent-ramo">${ramoNome}</div>
+        <div class="cls-talent-name">${t?t.nome:'?'}</div>
+        <div class="cls-talent-desc">${t?t.desc:'—'}</div>
+      </div>`;
+    } else {
+      // Show picker
+      const opts=['ramo1','ramo2','ramo3'].map((r,ri)=>{
+        const t=getTalentoDisponivel(r,n);
+        const ramoNome=cls.ramos[ri]||r;
+        const avail=!!t;
+        return `<button class="cls-pick-btn${avail?'':' unavail'}" onclick="escolherTalento(${n},'${r}')">
+          <span class="cls-pick-ramo">${ramoNome}</span>
+          ${avail?`<span class="cls-pick-talent-nm">${t.nome}</span><span class="cls-pick-desc"> — ${t.desc.substring(0,60)}${t.desc.length>60?'...':''}</span>`:'<span class="cls-pick-desc">(sem mais talentos neste ramo)</span>'}
+        </button>`;
+      }).join('');
+      rowHtml=`<div class="cls-picker">${opts}</div>`;
+    }
+
+    html+=`<div class="cls-level-row">
+      <span class="cls-level-badge">N${n}</span>
+      <div>${rowHtml}</div>
+    </div>`;
+  });
+
+  if(pbd) pbd.innerHTML=html;
+}
+
+function getTalentoEscolhido(nivel,ramo){
+  const cls=getClasse();if(!cls)return null;
+  const t=cls.talentos[ramo];if(!t)return null;
+  // Count how many times this ramo was chosen in levels < nivel
+  let count=0;
+  if(!S.classeTalentos) return null;
+  for(let n=2;n<nivel;n+=2){
+    if(S.classeTalentos[n]===ramo) count++;
+  }
+  return t[count]||null;
+}
+
+// ─── Level Up HP Roll ───
+function renderLevelUp(nivel){
+  const box=g('lvlup-box');
+  const rolls=g('lvlup-rolls');
+  if(!box||!rolls) return;
+  const cls=getClasse();
+  const unrolled=getUnrolledLevels(nivel);
+  if(!cls||unrolled.length===0){
+    box.style.display='none';
+    return;
+  }
+  box.style.display='block';
+  const MA={};ATTRS.forEach(a=>{MA[a]=ma(getAttrComRaca(a))});
+  const mod=MA[cls.pvAttr]||0;
+  rolls.innerHTML=unrolled.map(n=>`
+    <div class="lvlup-item" id="lvlup-item-${n}">
+      <span class="lvlup-item-lvl">→ Nível ${n}</span>
+      <button class="roll-btn" id="roll-btn-${n}" onclick="rollLevelHp(${n})">🎲 Rolar d${cls.pvDado}</button>
+      <span id="roll-res-${n}" style="font-family:'Fira Code',monospace;font-size:.8rem;color:var(--mist)">
+        ${mod!==0?`(mod ${cls.pvAttr}: ${mod>=0?'+':''}${mod})`:''}
+      </span>
+    </div>`).join('');
+}
+
+async function rollLevelHp(nivel){
+  const cls=getClasse();if(!cls)return;
+  const btn=g('roll-btn-'+nivel);
+  const res=g('roll-res-'+nivel);
+  if(btn) btn.disabled=true;
+  if(res) res.innerHTML='<span style="color:#d4541a;animation:blink .15s infinite">🎲 rolando...</span>';
+
+  // Animate
+  const MA={};ATTRS.forEach(a=>{MA[a]=ma(getAttrComRaca(a))});
+  const mod=MA[cls.pvAttr]||0;
+  let frames=12,interval=50;
+  let anim=setInterval(()=>{
+    const fake=Math.floor(Math.random()*cls.pvDado)+1;
+    if(res) res.innerHTML=`<span style="color:#d4541a">${fake}</span>`;
+    frames--;
+    if(frames<=0){
+      clearInterval(anim);
+      const rolled=Math.floor(Math.random()*cls.pvDado)+1;
+      const total=Math.max(1,rolled+mod);
+      if(!S.pvRolls) S.pvRolls={};
+      S.pvRolls[nivel]=rolled;
+      const sign=mod>=0?'+':''
+      if(res) res.innerHTML=`<span class="roll-result">${rolled}</span> <span style="opacity:.5;font-size:.75rem">(dado) ${mod!==0?sign+mod+' mod = ':''}<strong style="color:#4ade80">+${total} PV</strong></span>`;
+      if(btn) btn.style.display='none';
+      recalc();sched();
+      // Check if all levels rolled
+      const remaining=getUnrolledLevels(nivel);
+      if(remaining.length===0){
+        setTimeout(()=>{const box=g('lvlup-box');if(box)box.style.display='none';},1500);
+      }
+    }
+  },interval);
+}
+
+// ─── Marcos dinâmicos na progressão ───
+const MARCOS_GERAIS=[
+  {n:4,txt:'+1 em qualquer atributo (marco geral)',tipo:'geral'},
+  {n:5,txt:'+1 PA permanente no N15, marco de classe',tipo:'classe'},
+  {n:8,txt:'+1 em qualquer atributo (marco geral)',tipo:'geral'},
+  {n:10,txt:'+50% Mana máxima (base) · Marco de classe',tipo:'classe'},
+  {n:15,txt:'+1 PA por turno permanente',tipo:'geral'},
+  {n:20,txt:'Imunidade a 1 elemento · Marco de classe',tipo:'geral'},
+];
+
+function renderMarcos(nivel){
+  const cont=g('marcos-container');
+  const badge=g('marcos-classe-badge');
+  if(!cont) return;
+  const cls=getClasse();
+  if(badge) badge.textContent=cls?'('+cls.nome+')':'(classe não selecionada)';
+  let html='';
+  // Marcos gerais
+  MARCOS_GERAIS.forEach(m=>{
+    const reached=nivel>=m.n;
+    html+=`<div class="ac" style="${reached?'':'opacity:.35'}">
+      <div><span class="an" style="${reached?'color:var(--gold-light)':''}">Nível ${m.n}</span>
+      <span class="ad">${m.txt}</span></div>
+      ${reached?'<div class="acp" style="color:#4ade80">✓</div>':''}
+    </div>`;
+  });
+  // Marcos de classe
+  if(cls){
+    html+=`<div class="shd" style="margin-top:.8rem">Marcos de Classe — ${cls.icone} ${cls.nome}</div>`;
+    [5,10,15,20].forEach(mn=>{
+      const reached=nivel>=mn;
+      html+=`<div class="ac" style="${reached?'':'opacity:.35'}">
+        <div><span class="an" style="color:${cls.cor}">★ Nível ${mn}</span>
+        <span class="ad">${cls.marcos[mn]||'—'}</span></div>
+        ${reached?'<div class="acp" style="color:#4ade80">✓</div>':''}
+      </div>`;
+    });
+  } else {
+    html+=`<div style="opacity:.4;font-size:.8rem;font-style:italic;padding:.5rem">Selecione uma classe para ver os marcos de classe.</div>`;
+  }
+  cont.innerHTML=html;
+}
+
+
 const ATTRS=['FOR','DES','INT','CAR','SAB'];
 const SKILLS=[
   {id:'atletismo',nome:'Atletismo',attr:'FOR'},{id:'luta',nome:'Luta',attr:'FOR'},
@@ -688,7 +1362,7 @@ const XPT=[
 const SLOT_MAX={1:4,2:3,3:3,4:3,5:3,6:4};
 
 let S={
-  nome:'Personagem',xp:0,raca:'',
+  nome:'Personagem',xp:0,raca:'',classe:'',
   FOR:10,DES:10,INT:10,CAR:10,SAB:10,
   pv_cur:10,mana_cur:0,exst_cur:0,
   skills:{atletismo:0,luta:0,acrobacia:0,furtividade:0,pontaria:0,percepcao:0,sobrevivencia:0,medicina:0,combate_mag:0,investigacao:0,conhec_arc:0,conhec_mag:0,estrategia:0,forja:0,engenharia:0,diplomacia:0,intimidacao:0,lideranca:0},
@@ -698,6 +1372,8 @@ let S={
   slots:{1:[0,0,0,0],2:[0,0,0],3:[0,0,0],4:[0,0,0],5:[0,0,0],6:[0,0,0,0]},
   eq:{cabeca:'',pescoco:'',corpo:'',maos:'',anel1:'',anel2:'',pes:'',cintura:''},
   notas:'',
+  pvRolls:{},
+  classeTalentos:{},
 };
 
 function ma(v){return Math.floor((v-10)/2)}
@@ -801,24 +1477,20 @@ function recalc(){
   // defesas
   const arm_ca=iv('arm-ca'),esc_ca=iv('esc-ca');
   st('def-fis',10+MA.FOR+arm_ca+esc_ca);
-  st('def-mag',10+MA.INT);
+  st('def-mag',10+MA.INT+(getClasse()&&getClasse().manaFator>0?1:0));
   st('def-aer',10+MA.DES+nivel);
   st('def-men',10+MA.SAB);
 
-  // PV — anão +2/nível, elfo -2/nível, gnomo -1/nível
-  let pvBonus=0;
-  if(S.raca==='anao') pvBonus=2*(nivel-1);
-  if(S.raca==='elfo') pvBonus=-2*(nivel-1);
-  if(S.raca==='gnomo') pvBonus=-(nivel-1);
-  const pv_max=Math.max(1,(10+MA.FOR)+(nivel-1)*Math.max(5+MA.FOR,1)+pvBonus);
+  // PV — usando dado de classe ou fallback
+  const pv_max=calcPvMax(nivel,MA);
   const exst_max=20+Math.max(0,MA.SAB*5);
   const perf=3+MA.CAR;
   st('r-pv-max',pv_max);st('r-exst-max',exst_max);st('r-perf',perf);
 
-  let mana_max=nivel*10+MA.INT*10;
-  if(S.raca==='cinzeiro') mana_max+=4*nivel; // +4 mana/nível
-  if(S.raca==='moldado') mana_max=0; // depende de cristais
-  st('r-mana-max',S.raca==='moldado'?'Cristais':mana_max);
+  // Mana
+  const mana_max=calcManaMax(nivel,MA);
+  if(S.raca==='moldado'){st('r-mana-max','Cristais');}
+  else{st('r-mana-max',mana_max);}
 
   const pv_cur=Math.min(iv('r-pv-cur'),pv_max);
   const mana_cur=S.raca==='moldado'?iv('r-mana-cur'):Math.min(iv('r-mana-cur'),mana_max);
@@ -828,31 +1500,35 @@ function recalc(){
   setBar('bar-exst',exst_cur,exst_max);
   setBar('bar-perf',perf,Math.max(perf+4,8));
 
-  st('dc-mag',10+nivel+MA.INT);
+  // DC de Magia — usa manaAttr da classe se houver
+  const cls=getClasse();
+  const conjAttr=cls?cls.manaAttr:'INT';
+  const conjMA=MA[conjAttr]||0;
+  st('dc-mag',10+nivel+conjMA);
   const bc=MA.INT+MA.SAB;
   const bce=g('b-conj');
   if(bce){bce.textContent=fmt(bc);bce.className='auto'+(bc>0?' pos':bc<0?' neg':'')}
 
   // combate bônus
   const sk_luta=iv('skill-luta'),sk_pont=iv('skill-pontaria'),sk_cm=iv('skill-combate_mag');
-  const ac=sk_luta+MA.FOR,ad=sk_pont+MA.DES,am=sk_cm+MA.INT;
+  // Guerreiro usa FOR, Ranger/Ladino usam DES, Mago/Druida/Bardo/Necro usam INT ou SAB
+  const atkAttr=cls?(cls.pvAttr==='DES'?MA.DES:cls.pvAttr==='INT'?MA.INT:MA.FOR):MA.FOR;
+  const ac=sk_luta+atkAttr,ad=sk_pont+MA.DES,am=sk_cm+conjMA;
   const ce=g('atk-corp');if(ce){ce.textContent=fmt(ac);ce.className='auto'+(ac>0?' pos':ac<0?' neg':'')}
   const de=g('atk-dist');if(de){de.textContent=fmt(ad);de.className='auto'+(ad>0?' pos':ad<0?' neg':'')}
   const me=g('atk-mag');if(me){me.textContent=fmt(am);me.className='auto'+(am>0?' pos':am<0?' neg':'')}
 
-  // Bônus dano magia
   const dmb=g('dano-mag-bonus');
-  if(dmb){dmb.textContent=fmt(MA.INT);dmb.className='auto'+(MA.INT>0?' pos':MA.INT<0?' neg':'')}
+  if(dmb){dmb.textContent=fmt(conjMA);dmb.className='auto'+(conjMA>0?' pos':conjMA<0?' neg':'')}
 
-  // DANO DINÂMICO — arma ativa
   updateDanoCombate(MA);
-
   st('tot-ca',arm_ca+esc_ca);st('tot-dr',iv('arm-dr')+iv('esc-dr'));
 
-  // PA: humano ganha +1 permanente
+  // PA: humano +1, nível 15 +1, nível 20 +1 a mais (total +2)
   const paExtra=(S.raca==='humano')?1:0;
   const vel=Math.max(S.raca==='anao'?7:9+MA.DES,3);
-  const pa=(nivel>=15?7:6)+paExtra;
+  const paLevel=nivel>=20?8:nivel>=15?7:6;
+  const pa=paLevel+paExtra;
   const ini=10+MA.DES;
   st('c-vel',vel+'m');st('c-ini',fmt(ini));st('c-pa',pa);
   st('mini-ini',fmt(ini));st('mini-vel',vel+'m');st('mini-pa',pa);
@@ -867,16 +1543,10 @@ function recalc(){
     if(me2){me2.textContent=fmt(m);me2.className='attr-ma auto'+(m>0?' pos':m<0?' neg':'')}
     const be=g('bar-'+a);
     if(be)be.style.width=Math.max(0,Math.min(100,((total-3)/27)*100))+'%';
-    // badge racial
     const badge=g('racial-badge-'+a);
     if(badge){
-      if(rb!==0){
-        badge.textContent=(rb>0?'+':'')+rb;
-        badge.className='attr-racial '+(rb>0?'rpos':'rneg');
-        badge.style.display='block';
-      } else {
-        badge.style.display='none';
-      }
+      if(rb!==0){badge.textContent=(rb>0?'+':'')+rb;badge.className='attr-racial '+(rb>0?'rpos':'rneg');badge.style.display='block';}
+      else{badge.style.display='none';}
     }
   });
 
@@ -910,6 +1580,11 @@ function recalc(){
     const l=parseInt(tr.dataset.n);
     tr.className=l<nivel?'prog-done':l===nivel?'prog-cur':'';
   });
+
+  // Renders dinâmicos de classe
+  renderLevelUp(nivel);
+  renderHabilidadesClasse(nivel);
+  renderMarcos(nivel);
 
   document.title='HERANÇA RPG — '+(g('c-nome')?.value||'Personagem');
   renderSlots(nivel);
@@ -988,6 +1663,7 @@ async function iniciarFicha(){
   renderAttrs();renderSkills();renderArmas();renderSpells();renderProg();
   fillFromState();bindAll();
   atualizarInfoRaca();
+  atualizarInfoClasse();
   recalc();
 }
 function coletarEstado(){
@@ -998,7 +1674,9 @@ function coletarEstado(){
   S.arm_ca=iv('arm-ca');S.arm_dr=iv('arm-dr');S.arm_pen=iv('arm-pen');
   S.esc_ca=iv('esc-ca');S.esc_dr=iv('esc-dr');S.esc_pen=iv('esc-pen');
   S.notas=g('notas')?.value||'';
+  S.classe=g('class-select')?.value||S.classe||'';
   ['cabeca','pescoco','corpo','maos','anel1','anel2','pes','cintura'].forEach(k=>{S.eq[k]=g('eq-'+k)?.value||''});
+  // pvRolls e classeTalentos já são salvos em tempo real via sched()
 }
 async function saveState(){
   if(!_user)return;coletarEstado();
@@ -1017,6 +1695,9 @@ async function loadState(){
     if(!S.slots)S.slots={1:[0,0,0,0],2:[0,0,0],3:[0,0,0],4:[0,0,0],5:[0,0,0],6:[0,0,0,0]};
     if(!S.eq)S.eq={};
     if(!S.raca)S.raca='';
+    if(!S.classe)S.classe='';
+    if(!S.pvRolls)S.pvRolls={};
+    if(!S.classeTalentos)S.classeTalentos={};
     // migração: armas antigas sem tipo/ativa
     S.armas=S.armas.map(a=>({tipo:'corpo',ativa:false,...a}));
   }
@@ -1219,6 +1900,7 @@ function fillFromState(){
   g('esc-ca').value=S.esc_ca||0;g('esc-dr').value=S.esc_dr||0;g('esc-pen').value=S.esc_pen||0;
   ATTRS.forEach(a=>{const e=g('atr-'+a);if(e)e.value=S[a]||10});
   const rs=g('race-select');if(rs)rs.value=S.raca||'';
+  const cs=g('class-select');if(cs)cs.value=S.classe||'';
 }
 function init(){
   db.auth.getSession().then(({data:{session}})=>{
