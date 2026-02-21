@@ -131,7 +131,7 @@ input.ed[type=number]::-webkit-inner-spin-button{-webkit-appearance:none}
 .rtrack{height:16px;background:rgba(0,0,0,.5);border:1px solid rgba(201,168,76,.12);border-radius:2px;overflow:hidden}
 .rfill{height:100%;border-radius:2px;transition:width .5s ease;display:flex;align-items:center;justify-content:flex-end;padding-right:4px;font-family:'Fira Code',monospace;font-size:.6rem;color:rgba(255,255,255,.6)}
 .fhp{background:linear-gradient(to right,#5a0808,#c0392b)}
-.fmana{background:linear-gradient(to right,#0a2a55,#2980b9)}
+.fmana{background:linear-gradient(to right,#1a4a8a,#3daee9)}
 .fexst{background:linear-gradient(to right,#2a1a08,#c97a1a)}
 .fperf{background:linear-gradient(to right,#1a0a3a,#7b5ea7)}
 .dgrid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
@@ -568,6 +568,7 @@ const RACAS = {
   humano: {
     nome: 'Humano — O Adaptável', cor: '#6a4c32',
     bonus: {FOR:1,DES:1,INT:1,CAR:1,SAB:1},
+    skillBonus: {}, ppExtra: 5,
     tracos: '+1 PA permanente · 5 perícias iniciais · Ressurreição 1×/descanso (chega a 0 PV → fica em 1 PV)',
     habilidade: 'Determinação (Reação, 1×/descanso curto): Rerrola qualquer teste e fica com o segundo resultado.',
     desvantagem: 'Sem resistência natural — todo dano de tipo único causa +1/dado sem resistência adquirida.'
@@ -575,6 +576,7 @@ const RACAS = {
   elfo: {
     nome: 'Elfo — O Eterno', cor: '#1e4a30',
     bonus: {DES:3,INT:2,SAB:1,FOR:-1},
+    skillBonus: {percepcao:2, furtividade:2},
     tracos: 'Visão no escuro 18m · Cantrip extra grátis (custo −1 Mana) · Imune a sono mágico · Transe 4h = descanso longo',
     habilidade: 'Passo Sombrio (2 Mana, Ação Menor, 3×/desc. longo): Teletransporte 9m sem provocar ataques de oportunidade.',
     desvantagem: '−2 PV por nível · +2 dano de impacto recebido por dado.'
@@ -582,6 +584,7 @@ const RACAS = {
   anao: {
     nome: 'Anão — O Inabalável', cor: '#4a3010',
     bonus: {FOR:3,CON:3,DES:-2,CAR:-1},
+    skillBonus: {atletismo:2, forja:3},
     tracos: 'DR natural 2 · Vantagem vs veneno/doença/empurrão · Visão penumbra · +2 PV/nível',
     habilidade: 'Vigor de Ferro (0 Mana, Ação Menor, 1×/desc. curto, 3 rodadas): Resistência física, DR 5, imune a Caído/Empurrado. Pós-uso: Exaustão 1 por 2 rodadas.',
     desvantagem: 'Velocidade 7m · Não pode correr com carga >60% · Magias de Ilusão custam +2 Mana.'
@@ -589,6 +592,7 @@ const RACAS = {
   halfling: {
     nome: 'Halfling — O Sortudo', cor: '#2a4010',
     bonus: {DES:3,CAR:2,SAB:1,FOR:-2},
+    skillBonus: {furtividade:3, acrobacia:2},
     tracos: 'Sorte Inata: rerrola 1s naturais automaticamente · Vantagem em Furtividade · Imune a Medo com aliado em 3m · Tamanho Pequeno',
     habilidade: 'Toca de Coelho (1 Mana, Reação, 2×/desc. curto): Quando atingido, esquiva para espaço adjacente — ataque erra automaticamente.',
     desvantagem: 'Dano de armas de duas mãos −1d · Desvantagem em Intimidação · Pequeno para fins de agarrar/carregar.'
@@ -596,6 +600,7 @@ const RACAS = {
   tiefling: {
     nome: 'Tiefling — O Marcado', cor: '#4a0a0a',
     bonus: {INT:2,CAR:3,SAB:-1},
+    skillBonus: {intimidacao:3, diplomacia:1},
     tracos: 'Resistência a Fogo (÷2) · Visão no escuro 18m (escala de cinza) · Cantrips Thaumaturgy + Produce Flame grátis · +3 Intimidação',
     habilidade: 'Chama Infernal (3 Mana, Ação Padrão, 2×/desc. longo): Cone 6m — 3d6+CAR (fogo+necrótico), save DES. Ignora resistência comum a fogo.',
     desvantagem: 'NPCs neutros: teste CAR DC 12 na 1ª interação (falha = Desconfiante). Desvantagem em saves vs magia Sagrada/Radiante.'
@@ -603,6 +608,7 @@ const RACAS = {
   draconato: {
     nome: 'Draconato — O Herdeiro do Sopro', cor: '#0a1a3a',
     bonus: {FOR:3,CAR:2,INT:1,DES:-1},
+    skillBonus: {intimidacao:3, lideranca:2},
     tracos: 'Resistência ao elemento da linhagem · DR natural escalonável (1+Nível÷5) · Vantagem em Intimidação e liderança de combate',
     habilidade: 'Sopro Dracônico (Mana=Nível÷2, Ação Padrão): Cone 6m ou Linha 9m — (Nível×1d6)+FOR do elemento da linhagem. DC 8+Nível÷2+FOR.',
     desvantagem: 'Desvantagem em saves de SAB vs Medo/Raiva · Abaixo de 25% PV: save SAB DC 14 ou ataca aliado mais próximo por 1 rodada.'
@@ -610,6 +616,7 @@ const RACAS = {
   meio_elfo: {
     nome: 'Meio-Elfo — O Entre-Mundos', cor: '#1a3020',
     bonus: {CAR:3,DES:2,INT:1},
+    skillBonus: {diplomacia:4, intimidacao:2},
     tracos: 'Herança Dupla: escolha 2 traços (1 Humano + 1 Élfico) · +4 Persuasão/Enganação · Envelhece 2× mais lento · Imune a Envelhecimento Mágico',
     habilidade: 'Empatia Élfica (0 Mana, Ação Livre, ilimitado): Lê emoções superficiais (medo, raiva, mentira) em até 9m. SAB vs DC 12+SAB do alvo.',
     desvantagem: 'Sem bônus de grupo racial. Ao ser Encantado: duração dobrada.'
@@ -617,6 +624,7 @@ const RACAS = {
   cinzeiro: {
     nome: 'Cinzeiro — O Corrompido', cor: '#2a2a2a',
     bonus: {INT:2,FOR:1,CAR:-2},
+    skillBonus: {conhec_arc:3, conhec_mag:3},
     tracos: 'Resistência a Fogo e Eletricidade · 25% chance de absorver magias N0/N1 inimigas · Mana máx +4/nível · Sente magia em 9m automaticamente',
     habilidade: 'Absorção Arcana (0 Mana, Reação, 1×/rodada): Ao ser atingido por magia com dano, absorve até (Nível×2) de Mana. O restante do dano aplica normalmente.',
     desvantagem: 'Rolagem 1 natural em ação que use Mana: Explosão Residual 1d6 (força) em raio 3m. Curas mágicas 50% menos eficazes.'
@@ -624,6 +632,7 @@ const RACAS = {
   moldado: {
     nome: 'Moldado — O Construto Vivo', cor: '#0a0a2a',
     bonus: {FOR:2,INT:3,SAB:-2},
+    skillBonus: {engenharia:3, estrategia:2},
     tracos: 'Imune a veneno/doença/sono/fome/sede/envelhecimento · Descanso curto = 10min · Descanso longo = 4h · Memória perfeita · Módulo de Combate (1 arma sempre máxima)',
     habilidade: 'Sobrecarga de Sistema (0 Mana, Ação Menor, 1×/desc. longo, 3 rodadas): +2 PA/turno, +1d6 ataques. Após: Exaustão 2 + sem Ação Livre por 2 rodadas.',
     desvantagem: 'Sem Mana própria — depende de Cristais de Mana (1 cristal = 2 Mana). Dispel Magic causa Atordoado por 1 rodada mesmo se resistir.'
@@ -631,6 +640,7 @@ const RACAS = {
   selvatico: {
     nome: 'Selvático — O Vínculo Animal', cor: '#1a3a10',
     bonus: {FOR:2,DES:2,SAB:2,INT:-2},
+    skillBonus: {percepcao:3, sobrevivencia:3, atletismo:2},
     tracos: 'Aspecto Animal (Felino/Urso/Lobo/Corvo) · Não pode ser surpreendido · Vantagem em Percepção passiva · Regeneração: +1 PV/início de turno (bloqueada por veneno)',
     habilidade: 'Forma Bestial (4 Mana, Ação Padrão, 2×/desc. longo, Nível÷3 rodadas): +2 FOR e DES, +3m velocidade, ataques naturais 2d6+FOR.',
     desvantagem: 'Desvantagem em Enganação/Persuasão em contextos urbanos. Abaixo de 30% PV: save SAB DC 13 ou perde 1 PA (faz ataque de oportunidade no agressor).'
@@ -638,6 +648,7 @@ const RACAS = {
   sem_nome: {
     nome: 'Sem-Nome — A Identidade Fluida', cor: '#20102a',
     bonus: {FOR:-1,DES:-1,INT:-1,CAR:-1,SAB:-1},
+    skillBonus: {},
     tracos: 'Redistribui 2 pts de atributo a cada nível ímpar · Imune a Modificar Memória e Leitura de Mente · Scrying falha automaticamente · +10% XP em tudo',
     habilidade: 'Fragmento Emprestado (2 Mana, Ação Menor, 3×/desc. longo, 10 min): Copia um Traço Passivo de raça de um aliado em 3m. Apenas 1 fragmento ativo por vez.',
     desvantagem: '−1 global em todos os atributos base (compensado pela redistribuição nos níveis ímpares). Banimento: precisa de aliado no plano material que o "lembre" (CAR DC 14).'
@@ -645,6 +656,7 @@ const RACAS = {
   gnomo: {
     nome: 'Gnomo — O Engenheiro do Impossível', cor: '#102030',
     bonus: {INT:4,DES:2,FOR:-2},
+    skillBonus: {conhec_arc:4, investigacao:4, engenharia:4},
     tracos: 'Vantagem em saves de INT e vs Ilusões/Encantamentos · DC de Ilusões +2 · Custo de Ilusões −2 Mana · +4 Arcanismo/Ferramentas/Investigação · Tamanho Pequeno',
     habilidade: 'Gambito Gnômico (1 Mana, Ação Livre, ilimitado): Cria distração ilusória em 18m. Criaturas INT≥8 devem passar em Percepção DC 12+INT ou perdem Ação Livre.',
     desvantagem: '−1 PV por nível. −2 saves FOR e CON. Criaturas Grandes+ têm Vantagem em ataques contra gnomos.'
@@ -707,6 +719,16 @@ function getRacaBonus(){
   return r?r.bonus:{};
 }
 
+function getRacaSkillBonus(){
+  const r=RACAS[S.raca];
+  return r?.skillBonus||{};
+}
+
+function getRacaPpExtra(){
+  const r=RACAS[S.raca];
+  return r?.ppExtra||0;
+}
+
 function getAttrComRaca(attr){
   const base=iv('atr-'+attr)||10;
   const bonus=(getRacaBonus()[attr]||0);
@@ -717,6 +739,7 @@ function aplicarRaca(racaId){
   S.raca=racaId;
   atualizarInfoRaca();
   renderAttrs();
+  renderSkills();
   recalc();
   sched();
 }
@@ -858,13 +881,15 @@ function recalc(){
   });
 
   SKILLS.forEach(sk=>{
-    const nv=iv('skill-'+sk.id),b=nv+MA[sk.attr];
+    const nv=iv('skill-'+sk.id);
+    const racialSk=getRacaSkillBonus()[sk.id]||0;
+    const b=nv+MA[sk.attr]+racialSk;
     const e=g('skb-'+sk.id);
     if(e){e.textContent=fmt(b);e.className='auto'+(b>0?' pos':b<0?' neg':'')}
   });
 
   const modIntPP=Math.max(0,MA.INT);
-  const ppTotal=20+(nivel-1)*(1+modIntPP);
+  const ppTotal=20+getRacaPpExtra()+(nivel-1)*(1+modIntPP);
   const ppGasto=SKILLS.reduce((sum,sk)=>sum+(iv('skill-'+sk.id)||0),0);
   const ppRest=ppTotal-ppGasto;
   const ppEl=g('pp-restante'),ppTEl=g('pp-total');
@@ -1025,8 +1050,10 @@ function renderSkills(){
   const tb=g('skills-body');tb.innerHTML='';
   SKILLS.forEach(sk=>{
     const nv=S.skills[sk.id]||0;
+    const racialSk=getRacaSkillBonus()[sk.id]||0;
+    const racialBadge=racialSk!==0?`<span class="racial-badge ${racialSk>0?'pos':'neg'}">${racialSk>0?'+':''}${racialSk} racial</span>`:'';
     const tr=document.createElement('tr');
-    tr.innerHTML=`<td>${sk.nome}</td><td style="font-family:'Fira Code',monospace;font-size:.7rem;color:var(--mist)">${sk.attr}</td><td><input type="number" id="skill-${sk.id}" class="ed" min="0" max="20" value="${nv}" style="width:48px;font-size:.82rem"></td><td style="text-align:center"><span id="skb-${sk.id}" class="auto">+0</span></td>`;
+    tr.innerHTML=`<td>${sk.nome}${racialBadge}</td><td style="font-family:'Fira Code',monospace;font-size:.7rem;color:var(--mist)">${sk.attr}</td><td><input type="number" id="skill-${sk.id}" class="ed" min="0" max="20" value="${nv}" style="width:48px;font-size:.82rem"></td><td style="text-align:center"><span id="skb-${sk.id}" class="auto">+0</span></td>`;
     tb.appendChild(tr);
     const inp=g('skill-'+sk.id);
     let valorAnterior=nv;
@@ -1035,7 +1062,7 @@ function renderSkills(){
       const novo=parseInt(inp.value)||0;
       const xp=iv('c-xp'),nivel=calcNivel(xp);
       const modIntPP=Math.max(0,Math.floor(((iv('atr-INT')||10)-10)/2));
-      const ppTotal=20+(nivel-1)*(1+modIntPP);
+      const ppTotal=20+getRacaPpExtra()+(nivel-1)*(1+modIntPP);
       const ppGasto=SKILLS.reduce((sum,s)=>sum+(iv('skill-'+s.id)||0),0);
       const ppRest=ppTotal-ppGasto;
       if(ppRest<0)inp.value=Math.max(0,novo+ppRest);
